@@ -77,14 +77,22 @@ shutdown_initiated = True
 def load_panels_data():
     """Загрузка данных о панелях из JSON, сгенерированного gen_solar_farm.py."""
     global panels_data
-    json_path = rospy.get_param('~panels_json', 'panels_data.json')
-    try:
-        with open(json_path, 'r') as f:
-            panels_data = json.load(f)
-        rospy.loginfo(f"Loaded {len(panels_data)} panels from {json_path}")
-    except FileNotFoundError:
-        rospy.logwarn("panels_data.json not found, will rely on camera detection only")
-        panels_data = []
+    # Ищем в нескольких местах
+    search_paths = [
+        '/home/clover/nto_project/panels_data.json',
+        'panels_data.json',
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), 'panels_data.json'),
+    ]
+    for json_path in search_paths:
+        try:
+            with open(json_path, 'r') as f:
+                panels_data = json.load(f)
+            rospy.loginfo(f"Loaded {len(panels_data)} panels from {json_path}")
+            return
+        except FileNotFoundError:
+            continue
+    rospy.logwarn("panels_data.json not found, will rely on camera detection only")
+    panels_data = []
 
 
 def navigate_wait(x=0, y=0, z=0, yaw=float('nan'), speed=0.5,

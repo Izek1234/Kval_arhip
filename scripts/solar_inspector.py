@@ -9,6 +9,7 @@ import rospy
 import cv2
 import math
 import json
+import os
 import numpy as np
 from sensor_msgs.msg import Image, CameraInfo
 from std_msgs.msg import String, Empty, ColorRGBA
@@ -18,7 +19,13 @@ from clover import srv
 from std_srvs.srv import Trigger
 import tf2_ros
 import tf2_geometry_msgs
-import image_geometry
+
+# image_geometry может не быть установлен
+try:
+    import image_geometry
+    HAS_IMAGE_GEOMETRY = True
+except ImportError:
+    HAS_IMAGE_GEOMETRY = False
 
 
 rospy.init_node('solar_inspector', disable_signals=True)
@@ -39,9 +46,15 @@ status_pub = rospy.Publisher('/mission/status', String, queue_size=10)
 tf_buffer = tf2_ros.Buffer()
 tf_listener = tf2_ros.TransformListener(tf_buffer)
 
-# Камера
-camera_model = image_geometry.PinholeCameraModel()
-camera_model.fromCameraInfo(rospy.wait_for_message('main_camera/camera_info', CameraInfo))
+# Камера — пробуем image_geometry, fallback на упрощённую проекцию
+camera_model = None
+if HAS_IMAGE_GEOMETRY:
+    try:
+        camera_model = image_geometry.PinholeCameraModel()
+        camera_model.fromCameraInfo(rospy.wait_for_message('main_camera/camera_info', CameraInfo))
+    except Exception:
+        camera_model = None
+
 bridge = CvBridge()
 
 # Цвета HSV для определения перегрева
@@ -124,9 +137,19 @@ def land_wait():
 
 def img_xy_to_point(xy, dist):
     """Перевод пиксельных координат в 3D-мировые."""
-    xy_rect = camera_model.rectifyPoint(xy)
-    ray = camera_model.projectPixelTo3dRay(xy_rect)
-    return Point(x=ray[0] * dist, y=ray[1] * dist, z=dist)
+    if camera_model is not None:
+        xy_rect = camera_model.rectifyPoint(xy)
+        ray = camera_model.projectPixelTo3dRay(xy_rect)
+        return Point(x=ray[0] * dist, y=ray[1] * dist, z=dist)
+    else:
+        # Fallback: простая проекция (камера 640x480, FOV ~60°)
+        px, py = xy
+        img_w, img_h = 640, 480
+        fov = math.radians(60)
+        scale = (2 * dist * math.tan(fov / 2)) / img_w
+        dx = (px - img_w / 2) * scale
+        dy = (py - img_h / 2) * scale
+        return Point(x=dx, y=dy, z=dist)
 
 
 def detect_heat_color(hsv_img):

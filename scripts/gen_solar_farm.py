@@ -215,24 +215,24 @@ def create_contamination_sdf(name, x, y, panel_x, panel_y):
 
 
 def create_solar_panel_sdf(name, x, y):
-    """SDF-модель солнечной панели (плоский прямоугольник)."""
+    """SDF-модель солнечной панели — использует OBJ-модель из solar_panel.zip."""
     return f"""<model name="{name}">
   <static>true</static>
-  <pose>{x} {y} 0.08 0 0 0</pose>
+  <pose>{x} {y} 0 0 0 0</pose>
   <link name="link">
-    <collision name="collision">
-      <geometry>
-        <box><size>1.0 0.6 0.04</size></box>
-      </geometry>
-    </collision>
     <visual name="visual">
       <geometry>
-        <box><size>1.0 0.6 0.04</size></box>
+        <mesh>
+          <uri>model://solar_panel/meshes/solar_panel.obj</uri>
+          <scale>0.5 0.5 0.5</scale>
+        </mesh>
       </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/DarkBlue</name></script>
-      </material>
     </visual>
+    <collision name="collision">
+      <geometry>
+        <box><size>1 1 0.1</size></box>
+      </geometry>
+    </collision>
   </link>
 </model>"""
 
@@ -384,11 +384,49 @@ def setup_launch_files(user_name='clover'):
 
 if __name__ == '__main__':
     import sys
+    import zipfile
+    import gzip
     user_name = sys.argv[1] if len(sys.argv) > 1 else 'clover'
 
     # Создание директории nto_project если не существует
-    nto_dir = f"/home/Documents/Kval_arhip"
+    nto_dir = "/home/Documents/Kval_arhip"
     os.makedirs(nto_dir, exist_ok=True)
+
+    # Распаковка модели solar_panel в Gazebo model path
+    gazebo_model_dir = f"/home/{user_name}/.gazebo/models"
+    os.makedirs(gazebo_model_dir, exist_ok=True)
+    solar_panel_model_dir = os.path.join(gazebo_model_dir, "solar_panel")
+    os.makedirs(solar_panel_model_dir, exist_ok=True)
+
+    zip_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'solar_panel.zip')
+    if os.path.exists(zip_path):
+        with zipfile.ZipFile(zip_path, 'r') as z:
+            for item in z.namelist():
+                # Внутри zip путь: home/clover/Desktop/solar_panel/...
+                # Нам нужно извлечь только содержимое папки solar_panel/
+                rel_path = item.replace('home/clover/Desktop/solar_panel/', '')
+                if not rel_path:
+                    continue
+                target = os.path.join(solar_panel_model_dir, rel_path)
+                # Создаём промежуточные директории
+                os.makedirs(os.path.dirname(target), exist_ok=True)
+                # Распаковка .gz файлов
+                if item.endswith('.gz'):
+                    data = gzip.decompress(z.read(item))
+                    target = target[:-3]  # убираем .gz
+                    with open(target, 'wb') as f:
+                        f.write(data)
+                else:
+                    with open(target, 'wb') as f:
+                        f.write(z.read(item))
+        print(f"Модель solar_panel распакована в {solar_panel_model_dir}")
+    else:
+        print(f"WARNING: {zip_path} не найден! Модель solar_panel не распакована.")
+
+    # Также добавляем solar_panel в Gazebo environment variable
+    env_path = os.path.join(nto_dir, 'set_env.sh')
+    with open(env_path, 'w') as f:
+        f.write(f'export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:{gazebo_model_dir}\n')
 
     template_path = f"/home/{user_name}/catkin_ws/src/clover/clover_simulation/resources/worlds/clover_aruco.world"
     output_path = f"{nto_dir}/solar_farm.world"

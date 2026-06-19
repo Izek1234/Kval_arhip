@@ -387,7 +387,7 @@ if __name__ == '__main__':
     user_name = sys.argv[1] if len(sys.argv) > 1 else 'clover'
 
     # Создание директории nto_project если не существует
-    nto_dir = f"/home/{user_name}/nto_project"
+    nto_dir = f"/home/Documents/Kval_arhip"
     os.makedirs(nto_dir, exist_ok=True)
 
     template_path = f"/home/{user_name}/catkin_ws/src/clover/clover_simulation/resources/worlds/clover_aruco.world"
@@ -411,7 +411,7 @@ if __name__ == '__main__':
     import re
     content = re.sub(
         r'<arg name="world_name" value="[^"]*"',
-        f'<arg name="world_name" value="/home/{user_name}/nto_project/solar_farm.world"',
+        f'<arg name="world_name" value="/home/Documents/Kval_arhip/solar_farm.world"',
         content
     )
     with open(sim_launch, 'w') as f:

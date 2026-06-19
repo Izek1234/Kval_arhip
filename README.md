@@ -9,7 +9,7 @@
 Клонируйте репозиторий в домашнюю директорию:
 ```bash
 cd ~
-git clone https://github.com/Max-lab10/Flying_Robotics.git
+git clone https://github.com/Izek1234/Kval_arhip.git
 ```
 
 Перейдите в папку проекта и запустите скрипт инициализации:

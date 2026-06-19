@@ -215,10 +215,11 @@ def create_contamination_sdf(name, x, y, panel_x, panel_y):
 
 
 def create_solar_panel_sdf(name, x, y):
-    """SDF-модель солнечной панели — использует OBJ-модель из solar_panel.zip."""
+    """SDF-модель солнечной панели — OBJ-mesh, наклон 45° как у реальной панели."""
+    # pose: x y z roll pitch yaw — pitch=0.8 (≈45°) ставит панель вертикально/наклонно
     return f"""<model name="{name}">
   <static>true</static>
-  <pose>{x} {y} 0 0 0 0</pose>
+  <pose>{x} {y} 0.0 0 0.8 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -238,85 +239,48 @@ def create_solar_panel_sdf(name, x, y):
 
 
 def generate_world(template_path, output_path, panels):
-    """Создание Gazebo-мира на основе шаблона с добавлением солнечных панелей."""
-    # Чтение шаблонного мира
+    """Создание Gazebo-мира — вставка моделей как текст в шаблон."""
     with open(template_path, 'r') as f:
         content = f.read()
 
-    # Парсинг SDF
-    try:
-        root = ET.fromstring(content)
-    except ET.ParseError:
-        # Если шаблон не SDF, создаём мир с нуля
-        root = ET.Element('sdf', version='1.6')
-        world = ET.SubElement(root, 'world', name='solar_farm')
-        ET.SubElement(world, 'scene')
-        ET.SubElement(world, 'physics')
-        ET.SubElement(world, 'spherical_coordinates')
-
-        # Солнце
-        sun = ET.SubElement(world, 'light', name='sun', type='directional')
-        ET.SubElement(sun, 'pose').text = '0 0 10 0 0 0'
-        ET.SubElement(sun, 'diffuse').text = '0.8 0.8 0.8 1'
-        ET.SubElement(sun, 'specular').text = '0.2 0.2 0.2 1'
-
-        # Земля
-        ground = ET.SubElement(world, 'model', name='ground_plane')
-        ET.SubElement(ground, 'static').text = 'true'
-        link = ET.SubElement(ground, 'link', name='link')
-        visual = ET.SubElement(link, 'visual', name='visual')
-        ET.SubElement(visual, 'cast_shadows').text = '0'
-        geom = ET.SubElement(visual, 'geometry')
-        ET.SubElement(geom, 'plane')
-        size = ET.SubElement(geom, 'plane')
-        ET.SubElement(size, 'normal').text = '0 0 1'
-        ET.SubElement(size, 'size').text = '100 100'
-
-    world_elem = root.find('world')
-    if world_elem is None:
-        world_elem = root
-
-    # Добавление солнечных панелей и сопутствующих объектов
-    models_xml = ""
+    # Генерация SDF для всех моделей
+    models_sdf = ""
     for i, (px, py, heat_color, heat_state, cont_count) in enumerate(panels):
-        # Солнечная панель
-        models_xml += create_solar_panel_sdf(f"panel_{i+1}", px, py) + "\n"
+        models_sdf += create_solar_panel_sdf(f"panel_{i+1}", px, py) + "\n"
 
         # Индикационная площадка (в пределах 0.5м от панели)
         ind_offset_x = random.uniform(-0.3, 0.3)
         ind_offset_y = random.uniform(0.35, 0.45)
         ind_x = px + ind_offset_x
         ind_y = py + ind_offset_y
-        models_xml += create_indicator_platform_sdf(
+        models_sdf += create_indicator_platform_sdf(
             f"indicator_{i+1}", ind_x, ind_y, HEAT_COLORS_RGB[heat_color]
         ) + "\n"
 
         # Объекты загрязнения (2-5 зелёных площадок на панели)
         for j in range(cont_count):
-            models_xml += create_contamination_sdf(
+            models_sdf += create_contamination_sdf(
                 f"contamination_{i+1}_{j+1}", px, py, px, py
             ) + "\n"
 
-    # Вставка моделей в SDF
-    for model_str in models_xml.strip().split("</model>"):
-        if "<model" in model_str:
-            model_str += "</model>"
-            try:
-                model_elem = ET.fromstring(model_str)
-                world_elem.append(model_elem)
-            except ET.ParseError:
-                pass
+    # Вставка моделей перед закрывающим </world> тегом
+    if '</world>' in content:
+        content = content.replace('</world>', models_sdf + '</world>')
+    elif '</sdf>' in content:
+        # Если нет </world>, вставим перед </sdf>
+        content = content.replace('</sdf>', models_sdf + '</sdf>')
+    else:
+        # Если шаблон не SDF, обернуть всё
+        content = '<sdf version="1.6">\n<world name="solar_farm">\n' + content + models_sdf + '\n</world>\n</sdf>'
 
-    # Запись результата
-    tree = ET.ElementTree(root)
-    tree.write(output_path, encoding='unicode', xml_declaration=True)
+    with open(output_path, 'w') as f:
+        f.write(content)
 
-    # Сохранение данных о панелях для использования нодой полёта
+    # Сохранение данных о панелях для ноды полёта
     import json
     data_path = os.path.join(os.path.dirname(output_path), 'panels_data.json')
     with open(data_path, 'w') as f:
         json.dump(panels, f)
-    # Также в текущую директорию скрипта
     with open('panels_data.json', 'w') as f:
         json.dump(panels, f)
 
@@ -406,6 +370,10 @@ if __name__ == '__main__':
                 # Нам нужно извлечь только содержимое папки solar_panel/
                 rel_path = item.replace('home/clover/Desktop/solar_panel/', '')
                 if not rel_path:
+                    continue
+                # Пропускаем записи-директории (заканчиваются на /)
+                if item.endswith('/'):
+                    os.makedirs(os.path.join(solar_panel_model_dir, rel_path), exist_ok=True)
                     continue
                 target = os.path.join(solar_panel_model_dir, rel_path)
                 # Создаём промежуточные директории

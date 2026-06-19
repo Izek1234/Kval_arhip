@@ -219,7 +219,11 @@ def create_solar_panel_sdf(name, x, y):
     # pose: x y z roll pitch yaw — pitch=0.8 (≈45°) ставит панель вертикально/наклонно
     return f"""<model name="{name}">
   <static>true</static>
+<<<<<<< HEAD
   <pose>{x} {y} 0.0 0 0.8 0</pose>
+=======
+  <pose>{x} {y} 1.55 0 0 0</pose>
+>>>>>>> ebdc279c6daa5d019e951072deca012227c3a4b3
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -353,11 +357,11 @@ if __name__ == '__main__':
     user_name = sys.argv[1] if len(sys.argv) > 1 else 'clover'
 
     # Создание директории nto_project если не существует
-    nto_dir = "/home/Documents/Kval_arhip"
+    nto_dir = "/home/clover/Documents/Kval_arhip"
     os.makedirs(nto_dir, exist_ok=True)
 
     # Распаковка модели solar_panel в Gazebo model path
-    gazebo_model_dir = f"/home/{user_name}/.gazebo/models"
+    gazebo_model_dir = f"/home/clover/catkin_ws/src/sitl_gazebo/models/"
     os.makedirs(gazebo_model_dir, exist_ok=True)
     solar_panel_model_dir = os.path.join(gazebo_model_dir, "solar_panel")
     os.makedirs(solar_panel_model_dir, exist_ok=True)
@@ -371,7 +375,10 @@ if __name__ == '__main__':
                 rel_path = item.replace('home/clover/Desktop/solar_panel/', '')
                 if not rel_path:
                     continue
+<<<<<<< HEAD
                 # Пропускаем записи-директории (заканчиваются на /)
+=======
+>>>>>>> ebdc279c6daa5d019e951072deca012227c3a4b3
                 if item.endswith('/'):
                     os.makedirs(os.path.join(solar_panel_model_dir, rel_path), exist_ok=True)
                     continue
@@ -417,7 +424,7 @@ if __name__ == '__main__':
     import re
     content = re.sub(
         r'<arg name="world_name" value="[^"]*"',
-        f'<arg name="world_name" value="/home/Documents/Kval_arhip/solar_farm.world"',
+        f'<arg name="world_name" value="/home/clover/Documents/Kval_arhip/solar_farm.world"',
         content
     )
     with open(sim_launch, 'w') as f:

@@ -13,7 +13,9 @@ fuser -k 9090/tcp 2>/dev/null || true
 sleep 2
 
 echo "=== 2. Копирование simulator.launch ==="
-# cp $PROJECT_DIR/simulator.launch ~/catkin_ws/src/clover/clover_simulation/launch/simulator.launch
+cp -r $PROJECT_DIR/home/clover/Desktop/solar_panel/ /home/clover/catkin_ws/src/sitl_gazebo/models/
+cp $PROJECT_DIR/simulator.launch /home/clover/catkin_ws/src/clover/clover_simulation/launch/simulator.launch
+
 
 echo "=== 3. Настройка и генерация мира ==="
 python3 scripts/gen_solar_farm.py
@@ -32,7 +34,7 @@ ROSBRIDGE_PID=$!
 sleep 3
 
 echo "=== 7. Запуск ноды инспекции ==="
-python3 scripts/solar_inspector.py &
+# python3 scripts/solar_inspector.py &
 INSPECTOR_PID=$!
 
 echo "=== Все ноды запущены ==="

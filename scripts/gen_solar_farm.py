@@ -218,7 +218,7 @@ def create_solar_panel_sdf(name, x, y):
     """SDF-модель солнечной панели — использует OBJ-модель из solar_panel.zip."""
     return f"""<model name="{name}">
   <static>true</static>
-  <pose>{x} {y} 0 0 0 0</pose>
+  <pose>{x} {y} 1.55 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -389,11 +389,11 @@ if __name__ == '__main__':
     user_name = sys.argv[1] if len(sys.argv) > 1 else 'clover'
 
     # Создание директории nto_project если не существует
-    nto_dir = "/home/Documents/Kval_arhip"
+    nto_dir = "/home/clover/Documents/Kval_arhip"
     os.makedirs(nto_dir, exist_ok=True)
 
     # Распаковка модели solar_panel в Gazebo model path
-    gazebo_model_dir = f"/home/{user_name}/.gazebo/models"
+    gazebo_model_dir = f"/home/clover/catkin_ws/src/sitl_gazebo/models/"
     os.makedirs(gazebo_model_dir, exist_ok=True)
     solar_panel_model_dir = os.path.join(gazebo_model_dir, "solar_panel")
     os.makedirs(solar_panel_model_dir, exist_ok=True)
@@ -406,6 +406,9 @@ if __name__ == '__main__':
                 # Нам нужно извлечь только содержимое папки solar_panel/
                 rel_path = item.replace('home/clover/Desktop/solar_panel/', '')
                 if not rel_path:
+                    continue
+                if item.endswith('/'):
+                    os.makedirs(os.path.join(solar_panel_model_dir, rel_path), exist_ok=True)
                     continue
                 target = os.path.join(solar_panel_model_dir, rel_path)
                 # Создаём промежуточные директории
@@ -449,7 +452,7 @@ if __name__ == '__main__':
     import re
     content = re.sub(
         r'<arg name="world_name" value="[^"]*"',
-        f'<arg name="world_name" value="/home/Documents/Kval_arhip/solar_farm.world"',
+        f'<arg name="world_name" value="/home/clover/Documents/Kval_arhip/solar_farm.world"',
         content
     )
     with open(sim_launch, 'w') as f:

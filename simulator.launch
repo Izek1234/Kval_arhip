@@ -16,7 +16,7 @@
         <!-- Workaround for crashes in VMware -->
         <env name="SVGA_VGPU10" value="0"/>
         <arg name="gui" value="$(arg gui)"/>
-        <arg name="world_name" value="/home/clover/nto_project/oil_pipeline.world"/>
+        <arg name="world_name" value="/home/clover/nto_project/solar_farm.world"/>
         <arg name="verbose" value="true"/>
     </include>
 

@@ -316,6 +316,9 @@ def generate_world(template_path, output_path, panels):
     data_path = os.path.join(os.path.dirname(output_path), 'panels_data.json')
     with open(data_path, 'w') as f:
         json.dump(panels, f)
+    # Также в текущую директорию скрипта
+    with open('panels_data.json', 'w') as f:
+        json.dump(panels, f)
 
     return panels
 
@@ -383,8 +386,12 @@ if __name__ == '__main__':
     import sys
     user_name = sys.argv[1] if len(sys.argv) > 1 else 'clover'
 
+    # Создание директории nto_project если не существует
+    nto_dir = f"/home/{user_name}/nto_project"
+    os.makedirs(nto_dir, exist_ok=True)
+
     template_path = f"/home/{user_name}/catkin_ws/src/clover/clover_simulation/resources/worlds/clover_aruco.world"
-    output_path = "solar_farm.world"
+    output_path = f"{nto_dir}/solar_farm.world"
 
     # Настройка ArUco и launch-файлов
     setup_aruco_map(user_name)

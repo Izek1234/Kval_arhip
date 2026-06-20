@@ -40,11 +40,31 @@ def navigate_wait(x=0, y=0, z=0, yaw=float('nan'), speed=0.5,
 
 
 def publish_coords():
-    telem = get_telemetry(frame_id='aruco_map')
-    msg = f"x={telem.x:.2f} y={telem.y:.2f} z={telem.z:.2f}"
-    coord_pub.publish(data=msg)
-    rospy.loginfo(msg)
-    return telem.x, telem.y, telem.z
+    try:
+        telem = get_telemetry(frame_id='aruco_map')
+        msg = f"x={telem.x:.2f} y={telem.y:.2f} z={telem.z:.2f}"
+        coord_pub.publish(data=msg)
+        rospy.loginfo(msg)
+        return telem.x, telem.y, telem.z
+    except rospy.ServiceException:
+        return None
+
+
+def wait_for_aruco_map(timeout=30):
+    rospy.loginfo("Waiting for aruco_map...")
+    for _ in range(int(timeout * 5)):
+        if shutdown:
+            return None
+        try:
+            telem = get_telemetry(frame_id='aruco_map')
+            if abs(telem.x) < 20 and abs(telem.y) < 20 and abs(telem.z) < 5:
+                rospy.loginfo(f"aruco_map ready: x={telem.x:.2f} y={telem.y:.2f} z={telem.z:.2f}")
+                return telem.x, telem.y, telem.z
+        except rospy.ServiceException:
+            pass
+        rospy.sleep(0.2)
+    rospy.logwarn("aruco_map not ready, using fallback")
+    return 0, 0, 0
 
 
 def land_wait():
@@ -56,7 +76,18 @@ def land_wait():
 
 def fly_forward(waypoints, altitude=1.5, speed=0.5):
     global shutdown
+
     navigate_wait(z=altitude, frame_id='body', auto_arm=True, speed=speed)
+
+    start = wait_for_aruco_map()
+    if start is None:
+        land_wait()
+        return
+    sx, sy = start[0], start[1]
+    rospy.loginfo(f"Start position: ({sx:.2f}, {sy:.2f})")
+
+    # Сначала летим в центр карты (0,0) для стабилизации
+    navigate_wait(x=0, y=0, z=altitude, speed=speed, frame_id='aruco_map')
     shutdown = False
 
     for i, (x, y) in enumerate(waypoints):
@@ -67,7 +98,6 @@ def fly_forward(waypoints, altitude=1.5, speed=0.5):
         status_pub.publish(data=f"WP {i+1}/{len(waypoints)}: ({x:.1f}, {y:.1f})")
         rospy.sleep(0.5)
 
-    # Возврат
     navigate_wait(x=0, y=0, z=altitude, speed=speed, frame_id='aruco_map')
     navigate_wait(x=0, y=0, z=0.3, speed=0.3, frame_id='aruco_map', tolerance=0.15)
     land_wait()

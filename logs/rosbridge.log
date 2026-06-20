@@ -1,11 +1,38 @@
-2026-06-20 13:44:30+0300 [-] Log opened.
-2026-06-20 13:44:30+0300 [-] registered capabilities (classes):
-2026-06-20 13:44:30+0300 [-]  - <class 'rosbridge_library.capabilities.call_service.CallService'>
-2026-06-20 13:44:30+0300 [-]  - <class 'rosbridge_library.capabilities.advertise.Advertise'>
-2026-06-20 13:44:30+0300 [-]  - <class 'rosbridge_library.capabilities.publish.Publish'>
-2026-06-20 13:44:30+0300 [-]  - <class 'rosbridge_library.capabilities.subscribe.Subscribe'>
-2026-06-20 13:44:30+0300 [-]  - <class 'rosbridge_library.capabilities.defragmentation.Defragment'>
-2026-06-20 13:44:30+0300 [-]  - <class 'rosbridge_library.capabilities.advertise_service.AdvertiseService'>
-2026-06-20 13:44:30+0300 [-]  - <class 'rosbridge_library.capabilities.service_response.ServiceResponse'>
-2026-06-20 13:44:30+0300 [-]  - <class 'rosbridge_library.capabilities.unadvertise_service.UnadvertiseService'>
-2026-06-20 13:44:31+0300 [-] [WARN] [1781952271.185436, 0.000000]: Unable to start server: Couldn't listen on any:9090: [Errno 98] Address already in use. Retrying in 5s.
+2026-06-20 14:44:26+0300 [-] Log opened.
+2026-06-20 14:44:26+0300 [-] registered capabilities (classes):
+2026-06-20 14:44:26+0300 [-]  - <class 'rosbridge_library.capabilities.call_service.CallService'>
+2026-06-20 14:44:26+0300 [-]  - <class 'rosbridge_library.capabilities.advertise.Advertise'>
+2026-06-20 14:44:26+0300 [-]  - <class 'rosbridge_library.capabilities.publish.Publish'>
+2026-06-20 14:44:26+0300 [-]  - <class 'rosbridge_library.capabilities.subscribe.Subscribe'>
+2026-06-20 14:44:26+0300 [-]  - <class 'rosbridge_library.capabilities.defragmentation.Defragment'>
+2026-06-20 14:44:26+0300 [-]  - <class 'rosbridge_library.capabilities.advertise_service.AdvertiseService'>
+2026-06-20 14:44:26+0300 [-]  - <class 'rosbridge_library.capabilities.service_response.ServiceResponse'>
+2026-06-20 14:44:26+0300 [-]  - <class 'rosbridge_library.capabilities.unadvertise_service.UnadvertiseService'>
+2026-06-20 14:44:26+0300 [-] [WARN] [1781955866.665048, 0.000000]: Unable to start server: Couldn't listen on any:9090: [Errno 98] Address already in use. Retrying in 5s.
+2026-06-20 14:44:27+0300 [-] shutdown request: [/rosbridge_websocket] Reason: new node registered with same name
+2026-06-20 14:44:27+0300 [-] Traceback (most recent call last):
+2026-06-20 14:44:27+0300 [-]   File "/usr/lib/python3/dist-packages/twisted/internet/tcp.py", line 1361, in startListening
+2026-06-20 14:44:27+0300 [-]     skt.bind(addr)
+2026-06-20 14:44:27+0300 [-] OSError: [Errno 98] Address already in use
+2026-06-20 14:44:27+0300 [-] 
+2026-06-20 14:44:27+0300 [-] During handling of the above exception, another exception occurred:
+2026-06-20 14:44:27+0300 [-] 
+2026-06-20 14:44:27+0300 [-] Traceback (most recent call last):
+2026-06-20 14:44:27+0300 [-]   File "/opt/ros/noetic/lib/rosbridge_server/rosbridge_websocket", line 311, in <module>
+2026-06-20 14:44:27+0300 [-]     listenWS(factory, context_factory)
+2026-06-20 14:44:27+0300 [-]   File "/usr/lib/python3/dist-packages/autobahn/twisted/websocket.py", line 577, in listenWS
+2026-06-20 14:44:27+0300 [-]     listener = reactor.listenTCP(factory.port, factory, backlog, interface)
+2026-06-20 14:44:27+0300 [-]   File "/usr/lib/python3/dist-packages/twisted/internet/posixbase.py", line 495, in listenTCP
+2026-06-20 14:44:27+0300 [-]     p.startListening()
+2026-06-20 14:44:27+0300 [-]   File "/usr/lib/python3/dist-packages/twisted/internet/tcp.py", line 1363, in startListening
+2026-06-20 14:44:27+0300 [-]     raise CannotListenError(self.interface, self.port, le)
+2026-06-20 14:44:27+0300 [-] twisted.internet.error.CannotListenError: Couldn't listen on any:9090: [Errno 98] Address already in use.
+2026-06-20 14:44:27+0300 [-] 
+2026-06-20 14:44:27+0300 [-] During handling of the above exception, another exception occurred:
+2026-06-20 14:44:27+0300 [-] 
+2026-06-20 14:44:27+0300 [-] Traceback (most recent call last):
+2026-06-20 14:44:27+0300 [-]   File "/opt/ros/noetic/lib/rosbridge_server/rosbridge_websocket", line 317, in <module>
+2026-06-20 14:44:27+0300 [-]     rospy.sleep(retry_startup_delay)
+2026-06-20 14:44:27+0300 [-]   File "/opt/ros/noetic/lib/python3/dist-packages/rospy/timer.py", line 165, in sleep
+2026-06-20 14:44:27+0300 [-]     raise rospy.exceptions.ROSInterruptException("ROS shutdown request")
+2026-06-20 14:44:27+0300 [-] rospy.exceptions.ROSInterruptException: ROS shutdown request

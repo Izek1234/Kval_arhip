@@ -265,14 +265,9 @@ def main():
     navigate_wait(z=1.5, frame_id='body', auto_arm=True, speed=0.5)
     shutdown_initiated = False
 
-    # Инспекция панелей
+
     if panels_data:
-        # Полёт к известным позициям панелей
-        for i, (px, py, hc, hs, cc) in enumerate(panels_data):
-            if shutdown_initiated:
-                return
-            inspect_panel(i, px, py)
-    else:
+        print()
         # Поиск панелей через камеру (если данные о панелях неизвестны)
         # Зигзагообразный паттерн
         waypoints = [

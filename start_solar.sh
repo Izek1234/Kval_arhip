@@ -16,15 +16,29 @@ cleanup() {
     # На всякий случай убиваем процессы
     pkill -9 -f "roslaunch clover simulator.launch" 2>/dev/null || true
     pkill -9 -f "rosbridge_websocket.launch" 2>/dev/null || true
+    pkill -0 9090
     pkill -9 -f "solar_inspector.py" 2>/dev/null || true
     sleep 2
     echo "=== Все процессы остановлены ==="
     exit 0
 }
 
-trap cleanup SIGINT SIGTERM EXIT
+# trap cleanup SIGINT SIGTERM EXIT
 
 echo "=== 1. Убиваем старые процессы ==="
+echo ""
+echo "=== Остановка всех процессов ==="
+    # Закрываем tmux-сессии
+tmux kill-session -t simulator 2>/dev/null || true
+tmux kill-session -t rosbridge 2>/dev/null || true
+tmux kill-session -t inspector 2>/dev/null || true
+    # На всякий случай убиваем процессы
+pkill -9 -f "roslaunch clover simulator.launch" 2>/dev/null || true
+pkill -9 -f "rosbridge_websocket.launch" 2>/dev/null || true
+pkill -0 9090
+pkill -9 -f "solar_inspector.py" 2>/dev/null || true
+sleep 2
+echo "=== Все процессы остановлены ==="
 killall -9 gzserver gzclient rosmaster rosout roslaunch 2>/dev/null || true
 pkill -9 -f "solar_inspector.py" 2>/dev/null || true
 pkill -9 -f "rosbridge_websocket" 2>/dev/null || true
@@ -57,11 +71,11 @@ sleep 3
 ROSBRIDGE_PID=$(pgrep -f "rosbridge_websocket.launch" | head -1)
 echo "Rosbridge запущен в tmux-сессии 'rosbridge' (PID: $ROSBRIDGE_PID)"
 
-echo "=== 5. Запуск ноды инспекции ==="
-tmux new-session -d -s inspector "python3 scripts/solar_inspector.py 2>&1 | tee $LOG_DIR/inspector.log"
-sleep 1
-INSPECTOR_PID=$(pgrep -f "solar_inspector.py" | head -1)
-echo "Инспектор запущен в tmux-сессии 'inspector' (PID: $INSPECTOR_PID)"
+# echo "=== 5. Запуск ноды инспекции ==="
+# tmux new-session -d -s inspector "python3 scripts/solar_inspector.py 2>&1 | tee $LOG_DIR/inspector.log"
+# sleep 1
+# INSPECTOR_PID=$(pgrep -f "solar_inspector.py" | head -1)
+# echo "Инспектор запущен в tmux-сессии 'inspector' (PID: $INSPECTOR_PID)"
 
 echo ""
 echo "========================================="

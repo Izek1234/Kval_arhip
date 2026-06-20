@@ -45,7 +45,7 @@
     </physics>
   <model name="panel_1">
   <static>true</static>
-  <pose>2.528464135010503 6.761644866257253 0.0 1.55 0 0</pose>
+  <pose>6.1445282162254715 6.621377670358264 0.0 1.55 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -64,22 +64,22 @@
 </model>
 <model name="indicator_1">
   <static>true</static>
-  <pose>2.278464135010503 6.861644866257253 0.05 0 0 0</pose>
+  <pose>5.8945282162254715 6.7213776703582635 0.05 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.3 0.3 0.02</size></box>
       </geometry>
       <material>
-        <ambient>1.0 0.5 0.0 1</ambient>
-        <diffuse>1.0 0.5 0.0 1</diffuse>
+        <ambient>1.0 0.9 0.0 1</ambient>
+        <diffuse>1.0 0.9 0.0 1</diffuse>
       </material>
     </visual>
   </link>
 </model>
 <model name="contamination_1_1">
   <static>true</static>
-  <pose>2.5416217698272034 6.795626497460134 0.600 0 0 0</pose>
+  <pose>6.4371533291706795 6.703155963106113 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -94,7 +94,7 @@
 </model>
 <model name="contamination_1_2">
   <static>true</static>
-  <pose>2.740364862078177 6.603555676069014 0.600 0 0 0</pose>
+  <pose>6.145676736701586 6.428075750830431 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -109,22 +109,7 @@
 </model>
 <model name="contamination_1_3">
   <static>true</static>
-  <pose>2.874858955878492 6.89187382169921 0.600 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.08 0.08 0.01</size></box>
-      </geometry>
-      <material>
-        <ambient>0.0 0.8 0.0 1</ambient>
-        <diffuse>0.0 0.8 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model>
-<model name="contamination_1_4">
-  <static>true</static>
-  <pose>2.7481753945141487 6.791863943275525 0.600 0 0 0</pose>
+  <pose>6.19599327707287 6.722406321000686 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -139,7 +124,7 @@
 </model>
 <model name="panel_2">
   <static>true</static>
-  <pose>2.3127530562468874 1.6272061489879985 0.0 1.55 0 0</pose>
+  <pose>5.378335552612426 2.183125504497667 0.0 1.55 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -158,22 +143,22 @@
 </model>
 <model name="indicator_2">
   <static>true</static>
-  <pose>2.0627530562468874 1.7272061489879986 0.05 0 0 0</pose>
+  <pose>5.128335552612426 2.2831255044976673 0.05 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.3 0.3 0.02</size></box>
       </geometry>
       <material>
-        <ambient>1.0 0.0 0.0 1</ambient>
-        <diffuse>1.0 0.0 0.0 1</diffuse>
+        <ambient>1.0 0.5 0.0 1</ambient>
+        <diffuse>1.0 0.5 0.0 1</diffuse>
       </material>
     </visual>
   </link>
 </model>
 <model name="contamination_2_1">
   <static>true</static>
-  <pose>2.371968606118854 1.5536033377792198 0.600 0 0 0</pose>
+  <pose>5.646648170790815 2.002806361755288 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -188,22 +173,7 @@
 </model>
 <model name="contamination_2_2">
   <static>true</static>
-  <pose>2.6061664696615616 1.4902499203695478 0.600 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.08 0.08 0.01</size></box>
-      </geometry>
-      <material>
-        <ambient>0.0 0.8 0.0 1</ambient>
-        <diffuse>0.0 0.8 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model>
-<model name="contamination_2_3">
-  <static>true</static>
-  <pose>2.3922896372831026 1.782775998032342 0.600 0 0 0</pose>
+  <pose>5.564434283860275 2.2798514230208555 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -218,7 +188,7 @@
 </model>
 <model name="panel_3">
   <static>true</static>
-  <pose>5.856178927924163 3.6178365920407414 0.0 1.55 0 0</pose>
+  <pose>2.412475921998836 4.591768813246404 0.0 1.55 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -237,7 +207,7 @@
 </model>
 <model name="indicator_3">
   <static>true</static>
-  <pose>5.606178927924163 3.7178365920407415 0.05 0 0 0</pose>
+  <pose>2.162475921998836 4.691768813246403 0.05 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -252,7 +222,7 @@
 </model>
 <model name="contamination_3_1">
   <static>true</static>
-  <pose>6.07717407937583 3.428582879722028 0.600 0 0 0</pose>
+  <pose>2.4422485024669487 4.673379615265655 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -267,7 +237,7 @@
 </model>
 <model name="contamination_3_2">
   <static>true</static>
-  <pose>5.963347354986399 3.737220741065407 0.600 0 0 0</pose>
+  <pose>2.7429677697719894 4.748715425064334 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -282,7 +252,7 @@
 </model>
 <model name="contamination_3_3">
   <static>true</static>
-  <pose>6.166160226251891 3.609031017172695 0.600 0 0 0</pose>
+  <pose>2.5952763561438186 4.751759949233901 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -297,7 +267,22 @@
 </model>
 <model name="contamination_3_4">
   <static>true</static>
-  <pose>5.9468277666784015 3.610698406755137 0.600 0 0 0</pose>
+  <pose>2.5547708650966716 4.4482481733306285 0.600 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.08 0.08 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_3_5">
+  <static>true</static>
+  <pose>2.7560800766391704 4.544846462375341 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -312,7 +297,7 @@
 </model>
 <model name="panel_4">
   <static>true</static>
-  <pose>7.54986837595928 7.614174550530259 0.0 1.55 0 0</pose>
+  <pose>1.4050670817981934 7.422555524557628 0.0 1.55 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -331,22 +316,22 @@
 </model>
 <model name="indicator_4">
   <static>true</static>
-  <pose>7.29986837595928 7.714174550530259 0.05 0 0 0</pose>
+  <pose>1.1550670817981934 7.522555524557627 0.05 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.3 0.3 0.02</size></box>
       </geometry>
       <material>
-        <ambient>1.0 0.0 0.0 1</ambient>
-        <diffuse>1.0 0.0 0.0 1</diffuse>
+        <ambient>1.0 0.5 0.0 1</ambient>
+        <diffuse>1.0 0.5 0.0 1</diffuse>
       </material>
     </visual>
   </link>
 </model>
 <model name="contamination_4_1">
   <static>true</static>
-  <pose>7.541422108798767 7.494786208817749 0.600 0 0 0</pose>
+  <pose>1.5268181822423552 7.309324631268666 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -361,7 +346,7 @@
 </model>
 <model name="contamination_4_2">
   <static>true</static>
-  <pose>7.664128007344936 7.701366744211552 0.600 0 0 0</pose>
+  <pose>1.7059249867087167 7.590540192091426 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -376,7 +361,7 @@
 </model>
 <model name="contamination_4_3">
   <static>true</static>
-  <pose>7.677609450723831 7.479911516668777 0.600 0 0 0</pose>
+  <pose>1.6041411082350168 7.422613368311728 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -391,7 +376,7 @@
 </model>
 <model name="contamination_4_4">
   <static>true</static>
-  <pose>7.762265580692051 7.41817202464866 0.600 0 0 0</pose>
+  <pose>1.368240300550202 7.3996293758396305 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -406,7 +391,71 @@
 </model>
 <model name="contamination_4_5">
   <static>true</static>
-  <pose>7.514645012698338 7.753796120742017 0.600 0 0 0</pose>
+  <pose>1.6887555917014156 7.245749399880789 0.600 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.08 0.08 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="panel_5">
+  <static>true</static>
+  <pose>2.4464498820554317 1.0711444128121723 0.0 1.55 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <mesh>
+          <uri>model://solar_panel/meshes/solar_panel.obj</uri>
+          <scale>0.5 0.5 0.5</scale>
+        </mesh>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box><size>1 1 0.1</size></box>
+      </geometry>
+    </collision>
+  </link>
+</model>
+<model name="indicator_5">
+  <static>true</static>
+  <pose>2.1964498820554317 1.1711444128121724 0.05 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.3 0.3 0.02</size></box>
+      </geometry>
+      <material>
+        <ambient>1.0 0.0 0.0 1</ambient>
+        <diffuse>1.0 0.0 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_5_1">
+  <static>true</static>
+  <pose>2.506328943271724 0.8838192158124102 0.600 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.08 0.08 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_5_2">
+  <static>true</static>
+  <pose>2.636497484466153 1.2579664068274388 0.600 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>

@@ -199,12 +199,12 @@ def create_indicator_platform_sdf(name, x, y, color_rgb):
 
 
 def create_contamination_sdf(name, panel_x, panel_y):
-    cx = panel_x + random.uniform(-0.35, 0.35)
-    cy = panel_y + random.uniform(-0.35, 0.35)
-    z = (cx - panel_x) * math.sin(0.8) + 0.06
+    cx = panel_x + random.uniform(-0.15, 0.15)
+    cy = panel_y + random.uniform(-0.15, 0.15)
+    z = 0.6
     return f"""<model name="{name}">
   <static>true</static>
-  <pose>{cx} {cy} {z:.3f} 0 0.8 0</pose>
+  <pose>{cx} {cy} {z:.3f} 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -220,35 +220,8 @@ def create_contamination_sdf(name, panel_x, panel_y):
 
 
 def _indicator_pos_right(px, py, aruco_positions, aruco_margin=0.4):
-    ind_half = 0.15
-    min_dist = aruco_margin + ind_half
-    # Смещения по Y (справа от панели) и X — приоритет справа (+Y)
-    offsets_y = [0.55, 0.45, 0.65, 0.75, 0.35, 0.85, 0.95, 1.05]
-    offsets_x = [0.0, -0.15, 0.15, -0.3, 0.3, -0.4, 0.4]
-    for dy in offsets_y:
-        for dx in offsets_x:
-            ind_x = px + dx
-            ind_y = py + dy
-            collision = False
-            for ax, ay in aruco_positions:
-                if math.sqrt((ind_x - ax) ** 2 + (ind_y - ay) ** 2) < min_dist:
-                    collision = True
-                    break
-            if not collision:
-                return ind_x, ind_y
-    # Fallback: слева от панели (-Y)
-    for dy in [-0.55, -0.45, -0.65]:
-        for dx in offsets_x:
-            ind_x = px + dx
-            ind_y = py + dy
-            collision = False
-            for ax, ay in aruco_positions:
-                if math.sqrt((ind_x - ax) ** 2 + (ind_y - ay) ** 2) < min_dist:
-                    collision = True
-                    break
-            if not collision:
-                return ind_x, ind_y
-    return px, py + offsets_y[0]
+
+    return px-0.25, py + 0.1
 
 
 def generate_world(template_path, output_path, panels, aruco_positions=None):

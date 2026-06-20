@@ -1,9 +1,9 @@
-... logging to /home/clover/.ros/log/d4dfe63a-6c8e-11f1-a73a-7dcfb175762f/roslaunch-clover-dev-4419.log
+... logging to /home/clover/.ros/log/eee9fd90-6c93-11f1-a73a-7dcfb175762f/roslaunch-clover-dev-20158.log
 Checking log directory for disk usage. This may take a while.
 Press Ctrl-C to interrupt
 Done checking log file disk usage. Usage is <1GB.
 ]2;/home/clover/catkin_ws/src/clover/clover/launch/simulator.launch
-[1mstarted roslaunch server http://clover-dev.local:43939/[0m
+[1mstarted roslaunch server http://clover-dev.local:45145/[0m
 
 SUMMARY
 ========
@@ -215,7 +215,7 @@ NODES
     rosbridge_websocket (rosbridge_server/rosbridge_websocket)
     simple_offboard (clover/simple_offboard)
     sitl_0 (px4/px4)
-    spawn_clover_dev_4419_2280167124581361091 (gazebo_ros/spawn_model)
+    spawn_clover_dev_20158_3961194558073864260 (gazebo_ros/spawn_model)
     tf2_web_republisher (tf2_web_republisher/tf2_web_republisher)
     visualization (mavros_extras/visualization)
     vpe_publisher (clover/vpe_publisher)
@@ -241,96 +241,96 @@ INFO  [init] found model autostart file as SYS_AUTOSTART=4500
 INFO  [param] selected parameter default file eeprom/parameters_4500
 INFO  [parameters] BSON document size 268 bytes, decoded 268 bytes (INT32:12, FLOAT:2)
 [param] Loaded: eeprom/parameters_4500
-Gazebo multi-robot simulator, version 11.12.0
-Copyright (C) 2012 Open Source Robotics Foundation.
-Released under the Apache 2 License.
-http://gazebosim.org
-
 INFO  [dataman] data manager file './dataman' size is 7866640 bytes
 PX4 SIM HOST: localhost
+INFO  [simulator] Waiting for simulator to accept connection on TCP port 4560
 Gazebo multi-robot simulator, version 11.12.0
 Copyright (C) 2012 Open Source Robotics Foundation.
 Released under the Apache 2 License.
 http://gazebosim.org
 
 [1;33m[Wrn] [GuiIface.cc:200] [0m[1;33mg/gui-plugin is really loading a SystemPlugin. [0m[1;33mTo load a GUI plugin please use --gui-client-plugin 
-[0mINFO  [simulator] Waiting for simulator to accept connection on TCP port 4560
-2026-06-20 13:00:17+0300 [-] Log opened.
-2026-06-20 13:00:17+0300 [-] registered capabilities (classes):
-2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.call_service.CallService'>
-2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.advertise.Advertise'>
-2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.publish.Publish'>
-2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.subscribe.Subscribe'>
-2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.defragmentation.Defragment'>
-2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.advertise_service.AdvertiseService'>
-2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.service_response.ServiceResponse'>
-2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.unadvertise_service.UnadvertiseService'>
-[0m[ INFO] [1781949616.305901674]: ros.mavros: FCU URL: udp://@127.0.0.1:14580[0m
-[0m[ INFO] [1781949616.371371344]: ros.rosconsole_bridge.mavconn: udp0: Bind address: 0.0.0.0:14555[0m
-[0m[ INFO] [1781949616.371504658]: ros.rosconsole_bridge.mavconn: udp0: Remote address: 127.0.0.1:14580[0m
-[0m[ INFO] [1781949616.371597955]: ros.mavros: GCS bridge disabled[0m
-[0m[ INFO] [1781949616.607900341]: ros.mavros: Plugin 3dr_radio blacklisted[0m
-[0m[ INFO] [1781949616.607959043]: ros.mavros: Plugin actuator_control blacklisted[0m
-[0m[ INFO] [1781949616.607981375]: ros.mavros: Plugin adsb blacklisted[0m
-[0m[ INFO] [1781949616.732051253]: ros.mavros: Plugin altitude loaded[0m
-[0m[ INFO] [1781949616.787356094]: ros.mavros: Plugin altitude initialized[0m
-[0m[ INFO] [1781949616.787440334]: ros.mavros: Plugin cam_imu_sync blacklisted[0m
-[0m[ INFO] [1781949616.787478206]: ros.mavros: Plugin camera blacklisted[0m
-[0m[ INFO] [1781949616.787511880]: ros.mavros: Plugin cellular_status blacklisted[0m
-[0m[ INFO] [1781949616.787618583]: ros.mavros: Plugin command loaded[0m
-[0m[ INFO] [1781949617.113221191]: ros.mavros: Plugin command initialized[0m
-[0m[ INFO] [1781949617.113333855]: ros.mavros: Plugin companion_process_status blacklisted[0m
-[0m[ INFO] [1781949617.113408517]: ros.mavros: Plugin debug_value blacklisted[0m
-[0m[ INFO] [1781949617.130202938]: ros.mavros: Plugin distance_sensor loaded[0m
-[0m[ INFO] [1781949617.248506032]: ros.mavros: Plugin distance_sensor initialized[0m
-[0m[ INFO] [1781949617.248911122]: ros.mavros: Plugin esc_status blacklisted[0m
-[0m[ INFO] [1781949617.249040287]: ros.mavros: Plugin esc_telemetry blacklisted[0m
-[0m[ INFO] [1781949617.249102846]: ros.mavros: Plugin fake_gps blacklisted[0m
-[0m[ INFO] [1781949617.249242411]: ros.mavros: Plugin ftp loaded[0m
-[0m[ INFO] [1781949617.271810392]: ros.mavros: Plugin ftp initialized[0m
-[0m[ INFO] [1781949617.271930330]: ros.mavros: Plugin geofence blacklisted[0m
-[0m[ INFO] [1781949617.272072530]: ros.mavros: Plugin global_position loaded[0m
-[0m[ INFO] [1781949617.569509907]: ros.mavros: Plugin global_position initialized[0m
-[0m[ INFO] [1781949617.569546887]: ros.mavros: Plugin gps_input blacklisted[0m
-[0m[ INFO] [1781949617.569563609]: ros.mavros: Plugin gps_rtk blacklisted[0m
-[0m[ INFO] [1781949617.569571243]: ros.mavros: Plugin gps_status blacklisted[0m
-[0m[ INFO] [1781949617.569578297]: ros.mavros: Plugin guided_target blacklisted[0m
-[0m[ INFO] [1781949617.569594918]: ros.mavros: Plugin hil blacklisted[0m
-[0m[ INFO] [1781949617.569601601]: ros.mavros: Plugin home_position blacklisted[0m
-[0m[ INFO] [1781949617.569693435]: ros.mavros: Plugin imu loaded[0m
-[0m[ INFO] [1781949617.825315993]: ros.mavros: Plugin imu initialized[0m
-[0m[ INFO] [1781949617.825356660]: ros.mavros: Plugin landing_target blacklisted[0m
-[0m[ INFO] [1781949617.825461780]: ros.mavros: Plugin local_position loaded[0m
-[0m[ INFO] [1781949617.938203288]: ros.mavros: Plugin local_position initialized[0m
-[0m[ INFO] [1781949617.938239166]: ros.mavros: Plugin log_transfer blacklisted[0m
-[0m[ INFO] [1781949617.938256860]: ros.mavros: Plugin mag_calibration_status blacklisted[0m
-[0m[ INFO] [1781949617.938347923]: ros.mavros: Plugin manual_control loaded[0m
-[0m[ INFO] [1781949617.959005017]: ros.mavros: Plugin manual_control initialized[0m
-[0m[ INFO] [1781949617.959035475]: ros.mavros: Plugin mocap_pose_estimate blacklisted[0m
-[0m[ INFO] [1781949617.959045053]: ros.mavros: Plugin mount_control blacklisted[0m
-[0m[ INFO] [1781949617.959052647]: ros.mavros: Plugin nav_controller_output blacklisted[0m
-[0m[ INFO] [1781949617.959067015]: ros.mavros: Plugin obstacle_distance blacklisted[0m
-[0m[ INFO] [1781949617.959075060]: ros.mavros: Plugin odom blacklisted[0m
-[0m[ INFO] [1781949617.959085780]: ros.mavros: Plugin onboard_computer_status blacklisted[0m
-[0m[ INFO] [1781949617.959177414]: ros.mavros: Plugin param loaded[0m
-[0m[ INFO] [1781949617.966486611]: ros.mavros: Plugin param initialized[0m
-[0m[ INFO] [1781949617.9662026-06-20 13:00:17+0300 [-] WebSocketServerFactory starting on 9090
-2026-06-20 13:00:17+0300 [-] Starting factory <autobahn.twisted.websocket.WebSocketServerFactory object at 0x7f5e37529b20>
-2026-06-20 13:00:17+0300 [-] [INFO] [1781949617.994481, 0.000000]: rosout: Rosbridge WebSocket server started at ws://0.0.0.0:9090
-[INFO] [1781949617.231872, 0.000000]: Loading model XML from ros parameter drone_description
-[INFO] [1781949617.259261, 0.000000]: Waiting for service /gazebo/spawn_urdf_model
-[INFO] [1781949619.833857, 0.000000]: Calling service /gazebo/spawn_urdf_model
-[INFO] [1781949620.812766, 0.000000]: Spawn status: SpawnModel: Successfully spawned entity
-[0m[ INFO] [1781949617.293260959]: Finished loading Gazebo ROS API Plugin.[0m
+[0mGazebo multi-robot simulator, version 11.12.0
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+2026-06-20 13:36:48+0300 [-] Log opened.
+2026-06-20 13:36:48+0300 [-] registered capabilities (classes):
+2026-06-20 13:36:48+0300 [-]  - <class 'rosbridge_library.capabilities.call_service.CallService'>
+2026-06-20 13:36:48+0300 [-]  - <class 'rosbridge_library.capabilities.advertise.Advertise'>
+2026-06-20 13:36:48+0300 [-]  - <class 'rosbridge_library.capabilities.publish.Publish'>
+2026-06-20 13:36:48+0300 [-]  - <class 'rosbridge_library.capabilities.subscribe.Subscribe'>
+2026-06-20 13:36:48+0300 [-]  - <class 'rosbridge_library.capabilities.defragmentation.Defragment'>
+2026-06-20 13:36:48+0300 [-]  - <class 'rosbridge_library.capabilities.advertise_service.AdvertiseService'>
+2026-06-20 13:36:48+0300 [-]  - <class 'rosbridge_library.capabilities.service_response.ServiceResponse'>
+2026-06-20 13:36:48+0300 [-]  - <class 'rosbridge_library.capabilities.unadvertise_service.UnadvertiseService'>
+2026-06-20 13:36:49+0300 [-] WebSocketServerFactory starting on 9090
+2026-06-20 13:36:49+0300 [-] Starting factory <autobahn.twisted.websocket.WebSocketServerFactory object at 0x7f2945e50f10>
+2026-06-20 13:36:49+0300 [-] [INFO] [1781951809.023889, 0.000000]: rosout: Rosbridge WebSocket server started at ws://0.0.0.0:9090
+[0m[ INFO] [1781951808.089388397]: ros.mavros: FCU URL: udp://@127.0.0.1:14580[0m
+[0m[ INFO] [1781951808.187734411]: ros.rosconsole_bridge.mavconn: udp0: Bind address: 0.0.0.0:14555[0m
+[0m[ INFO] [1781951808.187830479]: ros.rosconsole_bridge.mavconn: udp0: Remote address: 127.0.0.1:14580[0m
+[0m[ INFO] [1781951808.187906060]: ros.mavros: GCS bridge disabled[0m
+[0m[ INFO] [1781951808.213432692]: ros.mavros: Plugin 3dr_radio blacklisted[0m
+[0m[ INFO] [1781951808.213486041]: ros.mavros: Plugin actuator_control blacklisted[0m
+[0m[ INFO] [1781951808.213507521]: ros.mavros: Plugin adsb blacklisted[0m
+[0m[ INFO] [1781951808.233749453]: ros.mavros: Plugin altitude loaded[0m
+[0m[ INFO] [1781951808.373833463]: ros.mavros: Plugin altitude initialized[0m
+[0m[ INFO] [1781951808.373992820]: ros.mavros: Plugin cam_imu_sync blacklisted[0m
+[0m[ INFO] [1781951808.374051960]: ros.mavros: Plugin camera blacklisted[0m
+[0m[ INFO] [1781951808.374093998]: ros.mavros: Plugin cellular_status blacklisted[0m
+[0m[ INFO] [1781951808.374230372]: ros.mavros: Plugin command loaded[0m
+[0m[ INFO] [1781951808.629536366]: ros.mavros: Plugin command initialized[0m
+[0m[ INFO] [1781951808.629561021]: ros.mavros: Plugin companion_process_status blacklisted[0m
+[0m[ INFO] [1781951808.629570259]: ros.mavros: Plugin debug_value blacklisted[0m
+[0m[ INFO] [1781951808.639534680]: ros.mavros: Plugin distance_sensor loaded[0m
+[0m[ INFO] [1781951808.718778315]: ros.mavros: Plugin distance_sensor initialized[0m
+[0m[ INFO] [1781951808.718833287]: ros.mavros: Plugin esc_status blacklisted[0m
+[0m[ INFO] [1781951808.718863884]: ros.mavros: Plugin esc_telemetry blacklisted[0m
+[0m[ INFO] [1781951808.718882468]: ros.mavros: Plugin fake_gps blacklisted[0m
+[0m[ INFO] [1781951808.718985079]: ros.mavros: Plugin ftp loaded[0m
+[0m[ INFO] [1781951808.851441016]: ros.mavros: Plugin ftp initialized[0m
+[0m[ INFO] [1781951808.851556652]: ros.mavros: Plugin geofence blacklisted[0m
+[0m[ INFO] [1781951808.851698856]: ros.mavros: Plugin global_position loaded[0m
+[0m[ INFO] [1781951809.040299120]: ros.mavros: Plugin global_position initialized[0m
+[0m[ INFO] [1781951809.040593027]: ros.mavros: Plugin gps_input blacklisted[0m
+[0m[ INFO] [1781951809.040611311]: ros.mavros: Plugin gps_rtk blacklisted[0m
+[0m[ INFO] [1781951809.040619767]: ros.mavros: Plugin gps_status blacklisted[0m
+[0m[ INFO] [1781951809.040641036]: ros.mavros: Plugin guided_target blacklisted[0m
+[0m[ INFO] [1781951809.040648190]: ros.mavros: Plugin hil blacklisted[0m
+[0m[ INFO] [1781951809.040657006]: ros.mavros: Plugin home_position blacklisted[0m
+[0m[ INFO] [1781951809.040754437]: ros.mavros: Plugin imu loaded[0m
+[0m[ INFO] [1781951809.052808952]: ros.mavros: Plugin imu initialized[0m
+[0m[ INFO] [1781951809.052904469]: ros.mavros: Plugin landing_target blacklisted[0m
+[0m[ INFO] [1781951809.053055380]: ros.mavros: Plugin local_position loaded[0m
+[0m[ INFO] [1781951809.064092413]: ros.mavros: Plugin local_position initialized[0m
+[0m[ INFO] [1781951809.064180717]: ros.mavros: Plugin log_transfer blacklisted[0m
+[0m[ INFO] [1781951809.064197358]: ros.mavros: Plugin mag_calibration_status blacklisted[0m
+[0m[ INFO] [1781951809.064288829]: ros.mavros: Plugin manual_control loaded[0m
+[0m[ INFO] [1781951809.068797826]: ros.mavros: Plugin manual_control initialized[0m
+[0m[ INFO] [1781951809.068892682]: ros.mavros: Plugin mocap_pose_estimate blacklisted[0m
+[0m[ INFO] [1781951809.068912800]: ros.mavros: Plugin mount_control blacklisted[0m
+[0m[ INFO] [1781951809.068927186]: ros.mavros: Plugin nav_controller_output blacklisted[0m
+[0m[ INFO] [1781951809.068947735]: ros.mavros: Plugin obstacle_distance blacklisted[0m
+[0m[ INFO] [1781951809.068960759]: ros.mavros: Plugin odom blacklisted[0m
+[0m[ INFO] [1781951809.068985134]: ros.mavros: Plugin onboard_computer_status blacklisted[0m
+[0m[ INFO] [1781951809.069098976]: ros.mavros: Plugin param loaded[0m
+[0m[ INFO] [1781951809.082530039]: ros.mavros: Plugin param initialized[0m
+[0m[ INFO] [1781951809.082[INFO] [1781951808.098056, 0.000000]: Loading model XML from ros parameter drone_description
+[INFO] [1781951808.316024, 0.000000]: Waiting for service /gazebo/spawn_urdf_model
+[INFO] [1781951810.988578, 0.000000]: Calling service /gazebo/spawn_urdf_model
+[INFO] [1781951811.483956, 0.000000]: Spawn status: SpawnModel: Successfully spawned entity
+[0m[ INFO] [1781951808.858614093]: Finished loading Gazebo ROS API Plugin.[0m
+[0m[ INFO] [1781951808.881170044]: waitForService: Service [/gazebo/set_physics_properties] has not been advertised, waiting...[0m
 [1;32m[Msg] [0m[1;32mWaiting for master.[0m[1;32m
 [0m[1;32m[0m[1;32m[Msg] [0m[1;32mConnected to gazebo master @ [0m[1;32mhttp://127.0.0.1:11345[0m[1;32m
 [0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m192.168.230.128[0m[1;32m
-[0m[1;32m[0m[0m[ INFO] [1781949617.329756689]: waitForService: Service [/gazebo/set_physics_properties] has not been advertised, waiting...[0m
-[1;32m[Msg] [0m[1;32mLoading world file [[0m[1;32m/home/clover/Documents/Kval_arhip/solar_farm.world[0m[1;32m][0m[1;32m
-[0m[1;32m[0m[0m[ INFO] [1781949619.845555232]: waitForService: Service [/gazebo/set_physics_properties] is now available.[0m
-[0m[ INFO] [1781949620.828666240, 0.004000000]: Physics dynamic reconfigure ready.[0m
-[0m[ INFO] [1781949621.158450800, 0.004000000]: Camera Plugin: Using the 'robotNamespace' param: '/'[0m
-[0m[ INFO] [1781949621.161656009, 0.004000000]: Camera Plugin (ns = /)  <tf_prefix_>, set to ""[0m
+[0m[1;32m[0m[1;32m[Msg] [0m[1;32mLoading world file [[0m[1;32m/home/clover/Documents/Kval_arhip/solar_farm.world[0m[1;32m][0m[1;32m
+[0m[1;32m[0m[0m[ INFO] [1781951810.782799813]: waitForService: Service [/gazebo/set_physics_properties] is now available.[0m
+[0m[ INFO] [1781951811.002930797, 0.044000000]: Physics dynamic reconfigure ready.[0m
+[0m[ INFO] [1781951811.866220623, 0.140000000]: Camera Plugin: Using the 'robotNamespace' param: '/'[0m
+[0m[ INFO] [1781951811.870043217, 0.140000000]: Camera Plugin (ns = /)  <tf_prefix_>, set to ""[0m
 [1;32m[Msg] [0m[1;32mConnecting to PX4 SITL using [0m[1;32mTCP[0m[1;32m
 [0m[1;32m[Msg] [0m[1;32mLockstep is [0m[1;32menabled[0m[1;32m
 [0m[1;32m[Msg] [0m[1;32mSpeed factor set to: [0m[1;32m1[0m[1;32m
@@ -343,76 +343,312 @@ INFO  [mavlink] mode: Normal, data rate: 4000000 B/s on udp port 18570 remote po
 INFO  [mavlink] mode: Onboard, data rate: 4000000 B/s on udp port 14580 remote port 14540
 INFO  [mavlink] partner IP: 127.0.0.1
 INFO  [mavlink] mode: Onboard, data rate: 4000 B/s on udp port 14280 remote port 14030
+[33m[ WARN] [1781951812.792370089, 0.748000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743920013.55 ms.[0m
+[33m[ WARN] [1781951812.834313497, 0.748000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041013.55 ms.[0m
+[33m[ WARN] [1781951812.872944630, 0.748000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744033297.55 ms.[0m
 INFO  [mavlink] mode: Gimbal, data rate: 400000 B/s on udp port 13030 remote port 13280
+[33m[ WARN] [1781951812.924593971, 0.752000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744037989.55 ms.[0m
+[33m[ WARN] [1781951812.973752255, 0.752000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744033301.55 ms.[0m
+[33m[ WARN] [1781951813.023795963, 0.784000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038021.55 ms.[0m
 INFO  [logger] logger started (mode=all)
 INFO  [logger] Start file log (type: full)
-INFO  [logger] [logger] ./log/2026-06-20/10_00_22.ulg	
-INFO  [logger] Opened full log file: ./log/2026-06-20/10_00_22.ulg
+INFO  [logger] [logger] ./log/2026-06-20/10_36_53.ulg	
+INFO  [logger] Opened full log file: ./log/2026-06-20/10_36_53.ulg
 INFO  [mavlink] MAVLink only on localhost (set param MAV_{i}_BROADCAST = 1 to enable network)
 INFO  [mavlink] MAVLink only on localhost (set param MAV_{i}_BROADCAST = 1 to enable network)
 INFO  [px4] Startup script returned successfully
-pxh> [0m[ INFO] [1781949617.934331402]: waitForService: Service [/gazebo_gui/set_physics_properties] has not been advertised, waiting...[0m
-[0m[ INFO] [1781949617.941195943]: Finished loading Gazebo ROS API Plugin.[0m
+pxh> [33m[ WARN] [1781951813.073045952, 0.832000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744033381.55 ms.[0m
+[33m[ WARN] [1781951813.124191705, 0.888000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743989581.55 ms.[0m
+[33m[ WARN] [1781951813.178752839, 0.940000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744052085.55 ms.[0m
+[33m[ WARN] [1781951813.224343483, 0.988000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038225.55 ms.[0m
+[33m[ WARN] [1781951813.273167651, 1.036000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744033585.55 ms.[0m
+[33m[ WARN] [1781951813.324493538, 1.088000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743989781.55 ms.[0m
+[33m[ WARN] [1781951813.372521996, 1.132000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744033681.55 ms.[0m
+[33m[ WARN] [1781951813.423633369, 1.184000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038421.55 ms.[0m
+[33m[ WARN] [1781951813.473226008, 1.228000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744033777.55 ms.[0m
+[33m[ WARN] [1781951813.523840282, 1.280000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038517.55 ms.[0m
+[33m[ WARN] [1781951813.572958025, 1.336000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744033885.55 ms.[0m
+[0m[ INFO] [1781951808.884524508]: Finished loading Gazebo ROS API Plugin.[0m
 [1;32m[Msg] [0m[1;32mWaiting for master.[0m[1;32m
 [0m[1;32m[0m[1;32m[Msg] [0m[1;32mConnected to gazebo master @ [0m[1;32mhttp://127.0.0.1:11345[0m[1;32m
 [0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m192.168.230.128[0m[1;32m
-[0m[1;32m[0m[0m[ INFO] [1781949622.134359793, 0.392000000]: LedController has started (as client) in namespace ''[0m
+[0m[1;32m[0m[0m[ INFO] [1781951808.912530573]: waitForService: Service [/gazebo_gui/set_physics_properties] has not been advertised, waiting...[0m
+[0m[ INFO] [1781951813.122443121]: LedController has started (as client) in namespace ''[0m
+[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[33m[ WARN] [1781951813.623529029, 1.388000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038625.55 ms.[0m
+[33m[ WARN] [1781951813.672991970, 1.440000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744033989.55 ms.[0m
+[33m[ WARN] [1781951813.724194998, 1.492000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038729.55 ms.[0m
+[33m[ WARN] [1781951813.772651629, 1.540000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744034089.55 ms.[0m
+[33m[ WARN] [1781951813.825426331, 1.596000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038833.55 ms.[0m
+[33m[ WARN] [1781951813.873373513, 1.644000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744034193.55 ms.[0m
+[33m[ WARN] [1781951813.924638063, 1.696000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038933.55 ms.[0m
+[33m[ WARN] [1781951813.973034298, 1.744000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744034293.55 ms.[0m
+[33m[ WARN] [1781951814.024643588, 1.800000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039037.55 ms.[0m
+[33m[ WARN] [1781951814.072694461, 1.844000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744034393.55 ms.[0m
+[33m[ WARN] [1781951814.124632471, 1.896000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039133.55 ms.[0m
+[33m[ WARN] [1781951814.172530022, 1.944000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744034493.55 ms.[0m
+[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[33m[ WARN] [1781951814.223728563, 2.000000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039237.55 ms.[0m
+[33m[ WARN] [1781951814.272976933, 2.036000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744034585.55 ms.[0m
+[1;32m[Msg] [0m[1;32mUsing MAVLink protocol v2.0
+[0m[0m[ INFO] [1781951812.097513109, 0.140000000]: Initialize LED Controller[0m
+[0m[ INFO] [1781951812.726936419, 0.692000000]: LedController has started (as server) in namespace ''[0m
+[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[33m[ WARN] [1781951814.323872886, 2.088000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039325.55 ms.[0m
+[33m[ WARN] [1781951814.373855866, 2.140000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744034689.55 ms.[0m
+[33m[ WARN] [1781951814.423794283, 2.188000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039425.55 ms.[0m
+[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[33m[ WARN] [1781951814.472663998, 2.236000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744034785.55 ms.[0m
+[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[33m[ WARN] [1781951814.525557172, 2.292000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039529.55 ms.[0m
+[33m[ WARN] [1781951814.573783163, 2.336000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744034885.55 ms.[0m
+[33m[ WARN] [1781951814.624456068, 2.388000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039625.55 ms.[0m
+[33m[ WARN] [1781951814.672975531, 2.432000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744034981.55 ms.[0m
+[33m[ WARN] [1781951814.723914956, 2.484000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039721.55 ms.[0m
+[33m[ WARN] [1781951814.773824238, 2.532000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744035081.55 ms.[0m
+[33m[ WARN] [1781951814.824571956, 2.584000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039821.55 ms.[0m
+[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[33m[ WARN] [1781951814.872836600, 2.624000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744035173.55 ms.[0m
+[33m[ WARN] [1781951814.924136820, 2.676000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039913.55 ms.[0m
+630747]: ros.mavros: Plugin play_tune blacklisted[0m
+[0m[ INFO] [1781951809.082767271]: ros.mavros: Plugin px4flow loaded[0m
+[0m[ INFO] [1781951809.093551251]: ros.mavros: Plugin px4flow initialized[0m
+[0m[ INFO] [1781951809.093650295]: ros.mavros: Plugin rallypoint blacklisted[0m
+[0m[ INFO] [1781951809.093672737]: ros.mavros: Plugin rangefinder blacklisted[0m
+[0m[ INFO] [1781951809.093772823]: ros.mavros: Plugin rc_io loaded[0m
+[0m[ INFO] [1781951809.098800261]: ros.mavros: Plugin rc_io initialized[0m
+[0m[ INFO] [1781951809.098881021]: ros.mavros: Plugin safety_area blacklisted[0m
+[0m[ INFO] [1781951809.098898824]: ros.mavros: Plugin setpoint_accel blacklisted[0m
+[0m[ INFO] [1781951809.099378536]: ros.mavros: Plugin setpoint_attitude loaded[0m
+[0m[ INFO] [1781951809.120203316]: ros.mavros: Plugin setpoint_attitude initialized[0m
+[0m[ INFO] [1781951809.120401215]: ros.mavros: Plugin setpoint_position loaded[0m
+[0m[ INFO] [1781951809.201858976]: ros.mavros: Plugin setpoint_position initialized[0m
+[0m[ INFO] [1781951809.202112016]: ros.mavros: Plugin setpoint_raw loaded[0m
+[0m[ INFO] [1781951809.222925242]: ros.mavros: Plugin setpoint_raw initialized[0m
+[0m[ INFO] [1781951809.223544804]: ros.mavros: Plugin setpoint_trajectory blacklisted[0m
+[0m[ INFO] [1781951809.224357666]: ros.mavros: Plugin setpoint_velocity loaded[0m
+[0m[ INFO] [1781951809.246087908]: ros.mavros: Plugin setpoint_velocity initialized[0m
+[0m[ INFO] [1781951809.246538035]: ros.mavros: Plugin sys_status loaded[0m
+[0m[ INFO] [1781951809.295935154]: ros.mavros: Plugin sys_status initialized[0m
+[0m[ INFO] [1781951809.296463307]: ros.mavros: Plugin sys_time loaded[0m
+[0m[ INFO] [1781951809.333891758]: ros.mavros.time: TM: Timesync mode: MAVLINK[0m
+[0m[ INFO] [1781951809.337808258]: ros.mavros.time: TM: Not publishing sim time[0m
+[0m[ INFO] [1781951809.343741955]: ros.mavros: Plugin sys_time initialized[0m
+[0m[ INFO] [1781951809.343887967]: ros.mavros: Plugin terrain blacklisted[0m
+[0m[ INFO] [1781951809.343958859]: ros.mavros: Plugin trajectory blacklisted[0m
+[0m[ INFO] [1781951809.344015554]: ros.mavros: Plugin tunnel blacklisted[0m
+[0m[ INFO] [1781951809.344312046]: ros.mavros: Plugin vfr_hud blacklisted[0m
+[0m[ INFO] [1781951809.344364814]: ros.mavros: Plugin vibration blacklisted[0m
+[0m[ INFO] [1781951809.344481972]: ros.mavros: Plugin vision_pose_estimate loaded[0m
+[0m[ INFO] [1781951809.362322497]: ros.mavros: Plugin vision_pose_estimate initialized[0m
+[0m[ INFO] [1781951809.362618408]: ros.mavros: Plugin vision_speed_estimate blacklisted[0m
+[0m[ INFO] [1781951809.362694579]: ros.mavros: Plugin waypoint blacklisted[0m
+[0m[ INFO] [1781951809.362738822]: ros.mavros: Plugin wheel_odometry blacklisted[0m
+[0m[ INFO] [1781951809.362778986]: ros.mavros: Plugin wind_estimation blacklisted[0m
+[0m[ INFO] [1781951809.362932622]: ros.mavros: Built-in SIMD instructions: SSE, SSE2[0m
+[0m[ INFO] [1781951809.363139116]: ros.mavros: Built-in MAVLink package version: 2022.12.30[0m
+[0m[ INFO] [1781951809.363224205]: ros.mavros: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all cubepilot development icarous matrixpilot paparazzi standard storm32 uAvionix ualberta[0m
+[0m[ INFO] [1781951809.363268096]: ros.mavros: MAVROS started. MY ID 1.240, TARGET ID 1.1[0m
+[0m[ INFO] [1781951812.768016864, 0.736000000]: ros.rosconsole_bridge.mavconn: udp0: Remote address: 127.0.0.1:14580[0m
+[0m[ INFO] [1781951812.982331154, 0.752000000]: ros.mavros.imu: IMU: High resolution IMU detected![0m
+[0m[ INFO] [1781951813.957168640, 1.728000000]: ros.mavros: CON: Got HEARTBEAT, connected. FCU: PX4 Autopilot[0m
+[0m[ INFO] [1781951813.957417823, 1.728000000]: ros.mavros.imu: IMU: High resolution IMU detected![0m
+[0m[ INFO] [1781951814.552435797, 2.316000000]: ros.mavros.imu: IMU: Attitude quaternion IMU detected![0m
+[0m[ INFO] [1781951814.976791821, 2.724000000]: ros.mavros.sys: VER: 1.1: Capabilities         0x000000000000e4ff[0m
+[0m[ INFO] [1781951814.976932853, 2.724000000]: ros.mavros.sys: VER:[33m[ WARN] [1781951814.977383572, 2.724000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744035273.55 ms.[0m
+[33m[ WARN] [1781951815.024091417, 2.776000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040013.55 ms.[0m
+[33m[ WARN] [1781951815.072837736, 2.824000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744035373.55 ms.[0m
 [1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
 [0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
-[0m[1;33m[0m[1;32m[Msg] [0m[1;32mUsing MAVLink protocol v2.0
-[0m[0m[ INFO] [1781949621.421773664, 0.004000000]: Initialize LED Controller[0m
-[0m[ INFO] [1781949622.094422153, 0.360000000]: LedController has started (as server) in namespace ''[0m
-[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
-[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
-[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
-[0m[1;33m[0m610516]: ros.mavros: Plugin play_tune blacklisted[0m
-[0m[ INFO] [1781949617.966747807]: ros.mavros: Plugin px4flow loaded[0m
-[0m[ INFO] [1781949617.992873781]: ros.mavros: Plugin px4flow initialized[0m
-[0m[ INFO] [1781949617.993178210]: ros.mavros: Plugin rallypoint blacklisted[0m
-[0m[ INFO] [1781949617.993251609]: ros.mavros: Plugin rangefinder blacklisted[0m
-[0m[ INFO] [1781949617.993401875]: ros.mavros: Plugin rc_io loaded[0m
-[0m[ INFO] [1781949618.000622498]: ros.mavros: Plugin rc_io initialized[0m
-[0m[ INFO] [1781949618.000801889]: ros.mavros: Plugin safety_area blacklisted[0m
-[0m[ INFO] [1781949618.000903732]: ros.mavros: Plugin setpoint_accel blacklisted[0m
-[0m[ INFO] [1781949618.001271932]: ros.mavros: Plugin setpoint_attitude loaded[0m
-[0m[ INFO] [1781949618.062603674]: ros.mavros: Plugin setpoint_attitude initialized[0m
-[0m[ INFO] [1781949618.062829152]: ros.mavros: Plugin setpoint_position loaded[0m
-[0m[ INFO] [1781949618.163752596]: ros.mavros: Plugin setpoint_position initialized[0m
-[0m[ INFO] [1781949618.164275519]: ros.mavros: Plugin setpoint_raw loaded[0m
-[0m[ INFO] [1781949618.216772487]: ros.mavros: Plugin setpoint_raw initialized[0m
-[0m[ INFO] [1781949618.217085772]: ros.mavros: Plugin setpoint_trajectory blacklisted[0m
-[0m[ INFO] [1781949618.217241518]: ros.mavros: Plugin setpoint_velocity loaded[0m
-[0m[ INFO] [1781949618.238548211]: ros.mavros: Plugin setpoint_velocity initialized[0m
-[0m[ INFO] [1781949618.238856887]: ros.mavros: Plugin sys_status loaded[0m
-[0m[ INFO] [1781949618.252025631]: ros.mavros: Plugin sys_status initialized[0m
-[0m[ INFO] [1781949618.252410051]: ros.mavros: Plugin sys_time loaded[0m
-[0m[ INFO] [1781949618.265368050]: ros.mavros.time: TM: Timesync mode: MAVLINK[0m
-[0m[ INFO] [1781949618.267026992]: ros.mavros.time: TM: Not publishing sim time[0m
-[0m[ INFO] [1781949618.268948843]: ros.mavros: Plugin sys_time initialized[0m
-[0m[ INFO] [1781949618.268988999]: ros.mavros: Plugin terrain blacklisted[0m
-[0m[ INFO] [1781949618.269008225]: ros.mavros: Plugin trajectory blacklisted[0m
-[0m[ INFO] [1781949618.269025999]: ros.mavros: Plugin tunnel blacklisted[0m
-[0m[ INFO] [1781949618.269042541]: ros.mavros: Plugin vfr_hud blacklisted[0m
-[0m[ INFO] [1781949618.269058982]: ros.mavros: Plugin vibration blacklisted[0m
-[0m[ INFO] [1781949618.269195601]: ros.mavros: Plugin vision_pose_estimate loaded[0m
-[0m[ INFO] [1781949618.280027556]: ros.mavros: Plugin vision_pose_estimate initialized[0m
-[0m[ INFO] [1781949618.280143766]: ros.mavros: Plugin vision_speed_estimate blacklisted[0m
-[0m[ INFO] [1781949618.280165347]: ros.mavros: Plugin waypoint blacklisted[0m
-[0m[ INFO] [1781949618.280178372]: ros.mavros: Plugin wheel_odometry blacklisted[0m
-[0m[ INFO] [1781949618.280189453]: ros.mavros: Plugin wind_estimation blacklisted[0m
-[0m[ INFO] [1781949618.280563273]: ros.mavros: Built-in SIMD instructions: SSE, SSE2[0m
-[0m[ INFO] [1781949618.280690866]: ros.mavros: Built-in MAVLink package version: 2022.12.30[0m
-[0m[ INFO] [1781949618.280742975]: ros.mavros: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all cubepilot development icarous matrixpilot paparazzi standard storm32 uAvionix ualberta[0m
-[0m[ INFO] [1781949618.281017406]: ros.mavros: MAVROS started. MY ID 1.240, TARGET ID 1.1[0m
-[0m[ INFO] [1781949622.237122751, 0.484000000]: ros.rosconsole_bridge.mavconn: udp0: Remote address: 127.0.0.1:14580[0m
-[0m[ INFO] [1781949622.251614436, 0.496000000]: ros.mavros.imu: IMU: High resolution IMU detected![0m
-[0m[ INFO] [1781949623.225558731, 1.476000000]: ros.mavros: CON: Got HEARTBEAT, connected. FCU: PX4 Autopilot[0m
-[0m[ INFO] [1781949623.225827071, 1.476000000]: ros.mavros.imu: IMU: High resolution IMU detected![0m
-[0m[ INFO] [1781949623.809730001, 2.056000000]: ros.mavros.imu: IMU: Attitude quaternion IMU detected![0m
-[0m[ INFO] [1781949624.235661177, 2.380000000]: ros.mavros.sys: VER: 1.1: Capabilities         0x000000000000e4ff[0m
-[0m[ INFO] [1781949624.235756297, 2.380000000]: ros.mavros.sys: VER:[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
-[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
-[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
-[0m[1;33m[0m[INFO] [1781949617.809867, 0.000000]: rosout: Rosapi started
+[0m[1;33m[0m[33m[ WARN] [1781951815.124490032, 2.868000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040105.55 ms.[0m
+[33m[ WARN] [1781951815.173158529, 2.912000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744035461.55 ms.[0m
+[33m[ WARN] [1781951815.224139527, 2.964000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040201.55 ms.[0m
+[33m[ WARN] [1781951815.272495703, 3.012000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744035561.55 ms.[0m
+[33m[ WARN] [1781951815.323706007, 3.064000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743991757.55 ms.[0m
+[33m[ WARN] [1781951815.374264609, 3.112000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744035661.55 ms.[0m
+[33m[ WARN] [1781951815.425944492, 3.160000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743991853.55 ms.[0m
+[33m[ WARN] [1781951815.473167639, 3.208000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744035757.55 ms.[0m
+[33m[ WARN] [1781951815.523609084, 3.260000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040497.55 ms.[0m
+[33m[ WARN] [1781951815.572645079, 3.308000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744035857.55 ms.[0m
+[33m[ WARN] [1781951815.623984684, 3.360000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040597.55 ms.[0m
+[33m[ WARN] [1781951815.672675832, 3.408000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744035957.55 ms.[0m
+[33m[ WARN] [1781951815.724146727, 3.456000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743992149.55 ms.[0m
+[33m[ WARN] [1781951815.773029679, 3.504000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744036053.55 ms.[0m
+[33m[ WARN] [1781951815.824376782, 3.556000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040793.55 ms.[0m
+[33m[ WARN] [1781951815.873335833, 3.600000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744036149.55 ms.[0m
+[33m[ WARN] [1781951815.923574174, 3.652000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040889.55 ms.[0m
+[33m[ WARN] [1781951815.972715731, 3.704000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744036253.55 ms.[0m
+[33m[ WARN] [1781951816.024143279, 3.756000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743992449.55 ms.[0m
+[33m[ WARN] [1781951816.073082136, 3.804000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744036353.55 ms.[0m
+[33m[ WARN] [1781951816.124408572, 3.856000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041093.55 ms.[0m
+[33m[ WARN] [1781951816.173290401, 3.904000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744036453.55 ms.[0m
+[33m[ WARN] [1781951816.223930972, 3.956000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041193.55 ms.[0m
+[33m[ WARN] [1781951816.272787044, 4.004000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744036553.55 ms.[0m
+[33m[ WARN] [1781951816.324208547, 4.056000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041293.55 ms.[0m
+[33m[ WARN] [1781951816.372444459, 4.104000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744036653.55 ms.[0m
+[33m[ WARN] [1781951816.423735917, 4.156000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041393.55 ms.[0m
+[33m[ WARN] [1781951816.472988970, 4.204000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744036753.55 ms.[0m
+[33m[ WARN] [1781951816.523612855, 4.248000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041485.55 ms.[0m
+[33m[ WARN] [1781951816.573217048, 4.288000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744036837.55 ms.[0m
+[33m[ WARN] [1781951816.624442832, 4.340000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041577.55 ms.[0m
+[33m[ WARN] [1781951816.672740034, 4.388000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744036937.55 ms.[0m
+[33m[ WARN] [1781951816.723626723, 4.436000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041673.55 ms.[0m
+[33m[ WARN] [1781951816.773048717, 4.484000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744037033.55 ms.[0m
+[33m[ WARN] [1781951816.823867294, 4.536000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041773.55 ms.[0m
+[33m[ WARN] [1781951816.873219680, 4.584000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744037133.55 ms.[0m
+[33m[ WARN] [1781951816.924838479, 4.636000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743993329.55 ms.[0m
+[33m[ WARN] [1781951816.973479052, 4.684000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744037233.55 ms.[0m
+[33m[ WARN] [1781951817.024581836, 4.736000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041973.55 ms.[0m
+[33m[ WARN] [1781951817.073263484, 4.776000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744037325.55 ms.[0m
+[33m[ WARN] [1781951817.124507008, 4.820000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042057.55 ms.[0m
+[33m[ WARN] [1781951817.173174229, 4.872000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744037421.55 ms.[0m
+[33m[ WARN] [1781951817.224646133, 4.920000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042157.55 ms.[0m
+[33m[ WARN] [1781951817.272560367, 4.968000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744037517.55 ms.[0m
+[33m[ WARN] [1781951817.323700459, 5.020000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042257.55 ms.[0m
+[33m[ WARN] [1781951817.372866878, 5.072000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744037621.55 ms.[0m
+[33m[ WARN] [1781951817.424182832, 5.120000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042357.55 ms.[0m
+[33m[ WARN] [1781951817.473617155, 5.168000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744037717.55 ms.[0m
+[33m[ WARN] [1781951817.524205891, 5.220000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042457.55 ms.[0m
+[33m[ WARN] [1781951817.572591178, 5.264000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744037813.55 ms.[0m
+[33m[ WARN] [1781951817.625184226, 5.316000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042553.55 ms.[0m
+[33m[ WARN] [1781951817.673263525, 5.360000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744037909.55 ms.[0m
+[33m[ WARN] [1781951817.724299201, 5.412000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042649.55 ms.[0m
+[33m[ WARN] [1781951817.773259749, 5.460000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038009.55 ms.[0m
+[33m[ WARN] [1781951817.824537956, 5.508000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042745.55 ms.[0m
+[33m[ WARN] [1781951817.873224673, 5.556000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038105.55 ms.[0m
+[33m[ WARN] [1781951817.924008997, 5.592000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042829.55 ms.[0m
+[33m[ WARN] [1781951817.973412970, 5.592000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038141.55 ms.[0m
+[33m[ WARN] [1781951818.023790529, 5.604000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042841.55 ms.[0m
+[33m[ WARN] [1781951818.072650975, 5.652000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038201.55 ms.[0m
+[33m[ WARN] [1781951818.124291143, 5.696000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743994389.55 ms.[0m
+[33m[ WARN] [1781951818.173361366, 5.748000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038297.55 ms.[0m
+[33m[ WARN] [1781951818.225106122, 5.800000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743994489.55 ms.[0m
+[33m[ WARN] [1781951818.272932450, 5.848000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038393.55 ms.[0m
+[33m[ WARN] [1781951818.325122395, 5.880000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743994573.55 ms.[0m
+[33m[ WARN] [1781951818.373015298, 5.880000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038429.55 ms.[0m
+[33m[ WARN] [1781951818.425432823, 5.900000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743994593.55 ms.[0m
+[33m[ WARN] [1781951818.473229965, 5.948000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038497.55 ms.[0m
+[33m[ WARN] [1781951818.524164690, 5.980000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043217.55 ms.[0m
+[33m[ WARN] [1781951818.573298144, 5.980000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038529.55 ms.[0m
+[33m[ WARN] [1781951818.624584074, 6.000000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043237.55 ms.[0m
+[33m[ WARN] [1781951818.673245755, 6.048000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038597.55 ms.[0m
+[33m[ WARN] [1781951818.724555172, 6.100000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743994793.55 ms.[0m
+[33m[ WARN] [1781951818.772829398, 6.148000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038697.55 ms.[0m
+[33m[ WARN] [1781951818.824308933, 6.152000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043389.55 ms.[0m
+[33m[ WARN] [1781951818.873233539, 6.152000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038701.55 ms.[0m
+[33m[ WARN] [1781951818.923974383, 6.200000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743994893.55 ms.[0m
+[33m[ WARN] [1781951818.972877314, 6.248000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038797.55 ms.[0m
+[33m[ WARN] [1781951819.024166354, 6.300000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043537.55 ms.[0m
+[33m[ WARN] [1781951819.074083011, 6.348000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038897.55 ms.[0m
+[33m[ WARN] [1781951819.124417308, 6.396000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743995089.55 ms.[0m
+[33m[ WARN] [1781951819.173166769, 6.440000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744038989.55 ms.[0m
+[33m[ WARN] [1781951819.223780362, 6.492000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043729.55 ms.[0m
+[33m[ WARN] [1781951819.273012121, 6.536000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039085.55 ms.[0m
+[33m[ WARN] [1781951819.326991932, 6.592000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043829.55 ms.[0m
+[33m[ WARN] [1781951819.373342931, 6.632000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039181.55 ms.[0m
+[33m[ WARN] [1781951819.424434471, 6.684000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043921.55 ms.[0m
+[33m[ WARN] [1781951819.473100706, 6.728000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039277.55 ms.[0m
+[33m[ WARN] [1781951819.524203380, 6.768000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743995461.55 ms.[0m
+[33m[ WARN] [1781951819.573703223, 6.812000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039361.55 ms.[0m
+[33m[ WARN] [1781951819.625017154, 6.860000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744044097.55 ms.[0m
+[33m[ WARN] [1781951819.673756764, 6.900000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039449.55 ms.[0m
+[33m[ WARN] [1781951819.724741157, 6.948000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743995641.55 ms.[0m
+[33m[ WARN] [1781951819.773660113, 6.980000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039529.55 ms.[0m
+[33m[ WARN] [1781951819.823997269, 7.028000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744044265.55 ms.[0m
+[33m[ WARN] [1781951819.874290611, 7.068000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039617.55 ms.[0m
+[33m[ WARN] [1781951819.924259422, 7.124000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744044361.55 ms.[0m
+[33m[ WARN] [1781951819.973319932, 7.160000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039709.55 ms.[0m
+[33m[ WARN] [1781951820.025020854, 7.200000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744044437.55 ms.[0m
+[33m[ WARN] [1781951820.073545505, 7.256000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039805.55 ms.[0m
+[33m[ WARN] [1781951820.124233057, 7.300000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743995993.55 ms.[0m
+[33m[ WARN] [1781951820.173222821, 7.344000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039893.55 ms.[0m
+[33m[ WARN] [1781951820.223898098, 7.384000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744044621.55 ms.[0m
+[33m[ WARN] [1781951820.272822185, 7.420000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744039969.55 ms.[0m
+[33m[ WARN] [1781951820.324371239, 7.476000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744044713.55 ms.[0m
+[33m[ WARN] [1781951820.373160175, 7.524000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040073.55 ms.[0m
+[33m[ WARN] [1781951820.424257792, 7.572000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744044809.55 ms.[0m
+[33m[ WARN] [1781951820.473442884, 7.624000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040173.55 ms.[0m
+[33m[ WARN] [1781951820.523657638, 7.660000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744044897.55 ms.[0m
+[33m[ WARN] [1781951820.572934050, 7.708000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040257.55 ms.[0m
+[33m[ WARN] [1781951820.624232148, 7.756000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743996449.55 ms.[0m
+[33m[ WARN] [1781951820.673556520, 7.804000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040353.55 ms.[0m
+[33m[ WARN] [1781951820.724388783, 7.856000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744045093.55 ms.[0m
+[33m[ WARN] [1781951820.773286280, 7.892000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040441.55 ms.[0m
+[33m[ WARN] [1781951820.824002767, 7.940000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744045177.55 ms.[0m
+[33m[ WARN] [1781951820.873872608, 7.980000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040529.55 ms.[0m
+[33m[ WARN] [1781951820.923740629, 8.020000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743996713.55 ms.[0m
+[33m[ WARN] [1781951820.973192832, 8.072000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040621.55 ms.[0m
+[33m[ WARN] [1781951821.023793208, 8.124000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744045361.55 ms.[0m
+[33m[ WARN] [1781951821.073236402, 8.172000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040721.55 ms.[0m
+[33m[ WARN] [1781951821.124621560, 8.224000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743996917.55 ms.[0m
+[33m[ WARN] [1781951821.172956382, 8.276000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040825.55 ms.[0m
+[33m[ WARN] [1781951821.224635410, 8.320000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743997013.55 ms.[0m
+[33m[ WARN] [1781951821.273662756, 8.368000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040917.55 ms.[0m
+[33m[ WARN] [1781951821.323973459, 8.408000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743997101.55 ms.[0m
+[33m[ WARN] [1781951821.373869761, 8.448000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744040997.55 ms.[0m
+[33m[ WARN] [1781951821.425096373, 8.500000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743997193.55 ms.[0m
+[33m[ WARN] [1781951821.473311329, 8.540000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041089.55 ms.[0m
+[33m[ WARN] [1781951821.525145224, 8.596000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743997289.55 ms.[0m
+[33m[ WARN] [1781951821.572721504, 8.640000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041189.55 ms.[0m
+[33m[ WARN] [1781951821.624985277, 8.684000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743997377.55 ms.[0m
+[33m[ WARN] [1781951821.672599545, 8.724000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041273.55 ms.[0m
+[33m[ WARN] [1781951821.724377376, 8.768000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743997461.55 ms.[0m
+[33m[ WARN] [1781951821.772788470, 8.808000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041357.55 ms.[0m
+[33m[ WARN] [1781951821.825092171, 8.864000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743997557.55 ms.[0m
+[33m[ WARN] [1781951821.873191149, 8.912000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041461.55 ms.[0m
+[33m[ WARN] [1781951821.923728669, 8.952000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744046189.55 ms.[0m
+[33m[ WARN] [1781951821.974417391, 8.984000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041533.55 ms.[0m
+[33m[ WARN] [1781951822.024382727, 9.028000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744046265.55 ms.[0m
+[33m[ WARN] [1781951822.073229989, 9.080000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041629.55 ms.[0m
+[33m[ WARN] [1781951822.124159068, 9.124000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744046361.55 ms.[0m
+[33m[ WARN] [1781951822.172940091, 9.160000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041709.55 ms.[0m
+[33m[ WARN] [1781951822.224979182, 9.216000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744046453.55 ms.[0m
+[33m[ WARN] [1781951822.272911215, 9.256000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041805.55 ms.[0m
+[33m[ WARN] [1781951822.324838181, 9.296000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743997989.55 ms.[0m
+[33m[ WARN] [1781951822.372571301, 9.336000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041885.55 ms.[0m
+[33m[ WARN] [1781951822.424074598, 9.392000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743998085.55 ms.[0m
+[33m[ WARN] [1781951822.472849104, 9.440000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744041989.55 ms.[0m
+[33m[ WARN] [1781951822.524119348, 9.488000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743998181.55 ms.[0m
+[33m[ WARN] [1781951822.572635548, 9.540000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042089.55 ms.[0m
+[33m[ WARN] [1781951822.624293880, 9.596000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744046833.55 ms.[0m
+[33m[ WARN] [1781951822.673302287, 9.624000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042173.55 ms.[0m
+[33m[ WARN] [1781951822.723770454, 9.684000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743998377.55 ms.[0m
+[33m[ WARN] [1781951822.773528310, 9.728000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042277.55 ms.[0m
+[33m[ WARN] [1781951822.825002017, 9.756000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743998449.55 ms.[0m
+[33m[ WARN] [1781951822.873652568, 9.792000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042341.55 ms.[0m
+[33m[ WARN] [1781951822.924102477, 9.824000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743998517.55 ms.[0m
+[33m[ WARN] [1781951822.972730833, 9.868000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042417.55 ms.[0m
+[33m[ WARN] [1781951823.024413658, 9.904000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744047141.55 ms.[0m
+[33m[ WARN] [1781951823.072889354, 9.924000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042473.55 ms.[0m
+[33m[ WARN] [1781951823.124014620, 9.964000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744047201.55 ms.[0m
+[33m[ WARN] [1781951823.174208513, 10.000000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042549.55 ms.[0m
+[33m[ WARN] [1781951823.224173941, 10.008000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744047245.55 ms.[0m
+[33m[ WARN] [1781951823.282366255, 10.008000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744044845.55 ms.[0m
+[33m[ WARN] [1781951823.324598812, 10.020000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744047257.55 ms.[0m
+[33m[ WARN] [1781951823.373552393, 10.036000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042585.55 ms.[0m
+[33m[ WARN] [1781951823.424032688, 10.076000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743998769.55 ms.[0m
+[33m[ WARN] [1781951823.473128325, 10.112000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042661.55 ms.[0m
+[INFO] [1781951808.985920, 0.000000]: rosout: Rosapi started
 shutdown request: [/rosapi] Reason: new node registered with same name
-2026-06-20 13:00:31+0300 [-] shutdown request: [/rosbridge_websocket] Reason: new node registered with same name
+[33m[ WARN] [1781951823.524773301, 10.140000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743998833.55 ms.[0m
+[33m[ WARN] [1781951823.573097713, 10.192000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042741.55 ms.[0m
+[33m[ WARN] [1781951823.624025039, 10.224000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743998917.55 ms.[0m
+2026-06-20 13:37:03+0300 [-] shutdown request: [/rosbridge_websocket] Reason: new node registered with same name
+[33m[ WARN] [1781951823.674277781, 10.252000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744049885.55 ms.[0m
+[33m[ WARN] [1781951823.724879468, 10.296000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743998989.55 ms.[0m
+[33m[ WARN] [1781951823.772847149, 10.344000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042893.55 ms.[0m
+[33m[ WARN] [1781951823.823349216, 10.388000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744047625.55 ms.[0m
+[33m[ WARN] [1781951823.872973283, 10.440000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744042989.55 ms.[0m
+[33m[ WARN] [1781951823.924346781, 10.496000000]: ros.mavros.time: TM : RTT too high for timesync: 18446743999189.55 ms.[0m
+[33m[ WARN] [1781951823.972849889, 10.548000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043093.55 ms.[0m
+[33m[ WARN] [1781951824.023978181, 10.596000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744047833.55 ms.[0m
+[33m[ WARN] [1781951824.072856362, 10.636000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043185.55 ms.[0m
+[33m[ WARN] [1781951824.124109753, 10.684000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744047921.55 ms.[0m
+[33m[ WARN] [1781951824.172614314, 10.728000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043277.55 ms.[0m
+[33m[ WARN] [1781951824.223984226, 10.768000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744048005.55 ms.[0m
+[33m[ WARN] [1781951824.273418933, 10.820000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043369.55 ms.[0m
+[33m[ WARN] [1781951824.324384718, 10.852000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744048089.55 ms.[0m
+[33m[ WARN] [1781951824.373375710, 10.904000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043453.55 ms.[0m
+[33m[ WARN] [1781951824.424566278, 10.936000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744048173.55 ms.[0m
+[33m[ WARN] [1781951824.473217672, 10.956000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744043505.55 ms.[0m
+[33m[ WARN] [1781951824.525437131, 10.976000000]: ros.mavros.time: TM : RTT too high for timesync: 18446744048213.55 ms.[0m

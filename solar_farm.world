@@ -1,7 +1,7 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" ?>
 <sdf version="1.5">
   <world name="default">
-    
+    <!-- A global light source -->
     <include>
       <uri>model://sun</uri>
     </include>
@@ -22,7 +22,7 @@
       <origin_visual>false</origin_visual>
     </scene>
   
-    <physics name="default_physics" default="0" type="ode">
+    <physics name='default_physics' default='0' type='ode'>
       <gravity>0 0 -9.8066</gravity>
       <ode>
         <solver>
@@ -45,7 +45,7 @@
     </physics>
   <model name="panel_1">
   <static>true</static>
-  <pose>6.772200140128601 5.5504598604151525 1.55 0 0 0</pose>
+  <pose>4.691944408437825 7.871328810221515 0.0 1.55 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -61,69 +61,100 @@
       </geometry>
     </collision>
   </link>
-</model><model name="indicator_1">
+</model>
+<model name="indicator_1">
   <static>true</static>
-  <pose>6.783828023989927 5.965434132619782 0.05 0 0 0</pose>
+  <pose>4.630183666538024 8.230416911076848 0.05 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.3 0.3 0.02</size></box>
       </geometry>
       <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script>
         <ambient>1.0 0.9 0.0 1</ambient>
         <diffuse>1.0 0.9 0.0 1</diffuse>
       </material>
     </visual>
   </link>
-</model><model name="contamination_1_1">
+</model>
+<model name="contamination_1_1">
   <static>true</static>
-  <pose>7.0372361915958095 5.419972398061512 0.1 0 0 0</pose>
+  <pose>4.551032250333044 7.897787943820542 0.15 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.15 0.15 0.01</size></box>
       </geometry>
       <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
         <ambient>0.0 0.8 0.0 1</ambient>
         <diffuse>0.0 0.8 0.0 1</diffuse>
       </material>
     </visual>
   </link>
-</model><model name="contamination_1_2">
+</model>
+<model name="contamination_1_2">
   <static>true</static>
-  <pose>6.949021412531729 5.6415186488092735 0.1 0 0 0</pose>
+  <pose>4.569051698468866 7.802923532266444 0.15 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.15 0.15 0.01</size></box>
       </geometry>
       <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
         <ambient>0.0 0.8 0.0 1</ambient>
         <diffuse>0.0 0.8 0.0 1</diffuse>
       </material>
     </visual>
   </link>
-</model><model name="contamination_1_3">
+</model>
+<model name="contamination_1_3">
   <static>true</static>
-  <pose>7.086033543883864 5.27888094237635 0.1 0 0 0</pose>
+  <pose>4.685764705439521 7.781353808189142 0.15 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.15 0.15 0.01</size></box>
       </geometry>
       <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
         <ambient>0.0 0.8 0.0 1</ambient>
         <diffuse>0.0 0.8 0.0 1</diffuse>
       </material>
     </visual>
   </link>
-</model><model name="panel_2">
+</model>
+<model name="contamination_1_4">
   <static>true</static>
-  <pose>2.7677511734551046 7.579060425990243 1.55 0 0 0</pose>
+  <pose>4.6663689294955875 7.65887127760539 0.15 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.15 0.15 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_1_5">
+  <static>true</static>
+  <pose>4.407650032510648 8.137951711559003 0.15 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.15 0.15 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="panel_2">
+  <static>true</static>
+  <pose>2.8568624572352306 4.198066990356514 0.0 1.55 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
@@ -139,314 +170,333 @@
       </geometry>
     </collision>
   </link>
-</model><model name="indicator_2">
+</model>
+<model name="indicator_2">
   <static>true</static>
-  <pose>3.0184328629383104 7.94483165097228 0.05 0 0 0</pose>
+  <pose>2.7067353776081546 4.633491204869106 0.05 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.3 0.3 0.02</size></box>
       </geometry>
       <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script>
-        <ambient>1.0 0.5 0.0 1</ambient>
-        <diffuse>1.0 0.5 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model><model name="contamination_2_1">
-  <static>true</static>
-  <pose>2.7116661436643064 7.689096440820014 0.1 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.15 0.15 0.01</size></box>
-      </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
-        <ambient>0.0 0.8 0.0 1</ambient>
-        <diffuse>0.0 0.8 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model><model name="contamination_2_2">
-  <static>true</static>
-  <pose>2.481317568163923 7.263918838621105 0.1 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.15 0.15 0.01</size></box>
-      </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
-        <ambient>0.0 0.8 0.0 1</ambient>
-        <diffuse>0.0 0.8 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model><model name="panel_3">
-  <static>true</static>
-  <pose>2.3579527966731426 3.4236284736211555 1.55 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <mesh>
-          <uri>model://solar_panel/meshes/solar_panel.obj</uri>
-          <scale>0.5 0.5 0.5</scale>
-        </mesh>
-      </geometry>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>1 1 0.1</size></box>
-      </geometry>
-    </collision>
-  </link>
-</model><model name="indicator_3">
-  <static>true</static>
-  <pose>2.51084647455921 3.805326309013036 0.05 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.3 0.3 0.02</size></box>
-      </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script>
-        <ambient>1.0 0.9 0.0 1</ambient>
-        <diffuse>1.0 0.9 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model><model name="contamination_3_1">
-  <static>true</static>
-  <pose>2.6064185080267723 3.528053936766813 0.1 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.15 0.15 0.01</size></box>
-      </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
-        <ambient>0.0 0.8 0.0 1</ambient>
-        <diffuse>0.0 0.8 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model><model name="contamination_3_2">
-  <static>true</static>
-  <pose>2.4782052437135587 3.3778019380442204 0.1 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.15 0.15 0.01</size></box>
-      </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
-        <ambient>0.0 0.8 0.0 1</ambient>
-        <diffuse>0.0 0.8 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model><model name="contamination_3_3">
-  <static>true</static>
-  <pose>2.049908459458296 3.1276784058688043 0.1 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.15 0.15 0.01</size></box>
-      </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
-        <ambient>0.0 0.8 0.0 1</ambient>
-        <diffuse>0.0 0.8 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model><model name="contamination_3_4">
-  <static>true</static>
-  <pose>2.697632057696199 3.2348454599705465 0.1 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.15 0.15 0.01</size></box>
-      </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
-        <ambient>0.0 0.8 0.0 1</ambient>
-        <diffuse>0.0 0.8 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model><model name="panel_4">
-  <static>true</static>
-  <pose>4.611376718231899 1.072537910800731 1.55 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <mesh>
-          <uri>model://solar_panel/meshes/solar_panel.obj</uri>
-          <scale>0.5 0.5 0.5</scale>
-        </mesh>
-      </geometry>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>1 1 0.1</size></box>
-      </geometry>
-    </collision>
-  </link>
-</model><model name="indicator_4">
-  <static>true</static>
-  <pose>4.585994137826719 1.4510919764749055 0.05 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.3 0.3 0.02</size></box>
-      </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script>
-        <ambient>1.0 0.5 0.0 1</ambient>
-        <diffuse>1.0 0.5 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model><model name="contamination_4_1">
-  <static>true</static>
-  <pose>4.665089068599209 0.798249932114773 0.1 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.15 0.15 0.01</size></box>
-      </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
-        <ambient>0.0 0.8 0.0 1</ambient>
-        <diffuse>0.0 0.8 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model><model name="contamination_4_2">
-  <static>true</static>
-  <pose>4.900501489525912 0.8097981425474946 0.1 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.15 0.15 0.01</size></box>
-      </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
-        <ambient>0.0 0.8 0.0 1</ambient>
-        <diffuse>0.0 0.8 0.0 1</diffuse>
-      </material>
-    </visual>
-  </link>
-</model><model name="panel_5">
-  <static>true</static>
-  <pose>7.92523454290365 1.1783265040814555 1.55 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <mesh>
-          <uri>model://solar_panel/meshes/solar_panel.obj</uri>
-          <scale>0.5 0.5 0.5</scale>
-        </mesh>
-      </geometry>
-    </visual>
-    <collision name="collision">
-      <geometry>
-        <box><size>1 1 0.1</size></box>
-      </geometry>
-    </collision>
-  </link>
-</model><model name="indicator_5">
-  <static>true</static>
-  <pose>7.687185425672365 1.5680559123794962 0.05 0 0 0</pose>
-  <link name="link">
-    <visual name="visual">
-      <geometry>
-        <box><size>0.3 0.3 0.02</size></box>
-      </geometry>
-      <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script>
         <ambient>1.0 0.0 0.0 1</ambient>
         <diffuse>1.0 0.0 0.0 1</diffuse>
       </material>
     </visual>
   </link>
-</model><model name="contamination_5_1">
+</model>
+<model name="contamination_2_1">
   <static>true</static>
-  <pose>8.085062088786767 1.4121183654735694 0.1 0 0 0</pose>
+  <pose>3.175348652991415 4.056469208710555 0.15 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.15 0.15 0.01</size></box>
       </geometry>
       <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
         <ambient>0.0 0.8 0.0 1</ambient>
         <diffuse>0.0 0.8 0.0 1</diffuse>
       </material>
     </visual>
   </link>
-</model><model name="contamination_5_2">
+</model>
+<model name="contamination_2_2">
   <static>true</static>
-  <pose>7.947509258040289 1.1876793015713143 0.1 0 0 0</pose>
+  <pose>2.8407059112262205 4.001441168490675 0.15 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.15 0.15 0.01</size></box>
       </geometry>
       <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
         <ambient>0.0 0.8 0.0 1</ambient>
         <diffuse>0.0 0.8 0.0 1</diffuse>
       </material>
     </visual>
   </link>
-</model><model name="contamination_5_3">
+</model>
+<model name="contamination_2_3">
   <static>true</static>
-  <pose>7.7034332318224195 0.8456806804864807 0.1 0 0 0</pose>
+  <pose>3.1080418854577285 4.146096449422204 0.15 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.15 0.15 0.01</size></box>
       </geometry>
       <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
         <ambient>0.0 0.8 0.0 1</ambient>
         <diffuse>0.0 0.8 0.0 1</diffuse>
       </material>
     </visual>
   </link>
-</model><model name="contamination_5_4">
+</model>
+<model name="contamination_2_4">
   <static>true</static>
-  <pose>7.857054407207955 1.487338513177903 0.1 0 0 0</pose>
+  <pose>2.977366326728038 4.356150567499483 0.15 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.15 0.15 0.01</size></box>
       </geometry>
       <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
         <ambient>0.0 0.8 0.0 1</ambient>
         <diffuse>0.0 0.8 0.0 1</diffuse>
       </material>
     </visual>
   </link>
-</model><model name="contamination_5_5">
+</model>
+<model name="contamination_2_5">
   <static>true</static>
-  <pose>7.6939568597744055 1.3798339407532876 0.1 0 0 0</pose>
+  <pose>2.823114295736087 4.204888678649089 0.15 0 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>
         <box><size>0.15 0.15 0.01</size></box>
       </geometry>
       <material>
-        <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
         <ambient>0.0 0.8 0.0 1</ambient>
         <diffuse>0.0 0.8 0.0 1</diffuse>
       </material>
     </visual>
   </link>
-</model></world>
+</model>
+<model name="panel_3">
+  <static>true</static>
+  <pose>5.777943360266404 2.1046763779812427 0.0 1.55 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <mesh>
+          <uri>model://solar_panel/meshes/solar_panel.obj</uri>
+          <scale>0.5 0.5 0.5</scale>
+        </mesh>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box><size>1 1 0.1</size></box>
+      </geometry>
+    </collision>
+  </link>
+</model>
+<model name="indicator_3">
+  <static>true</static>
+  <pose>5.654687017283805 2.5468974084523293 0.05 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.3 0.3 0.02</size></box>
+      </geometry>
+      <material>
+        <ambient>1.0 0.0 0.0 1</ambient>
+        <diffuse>1.0 0.0 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_3_1">
+  <static>true</static>
+  <pose>5.9526025909773885 2.0931179278009377 0.15 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.15 0.15 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_3_2">
+  <static>true</static>
+  <pose>5.979141421735834 2.4211046212719753 0.15 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.15 0.15 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="panel_4">
+  <static>true</static>
+  <pose>1.5643669165804999 1.448005385175238 0.0 1.55 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <mesh>
+          <uri>model://solar_panel/meshes/solar_panel.obj</uri>
+          <scale>0.5 0.5 0.5</scale>
+        </mesh>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box><size>1 1 0.1</size></box>
+      </geometry>
+    </collision>
+  </link>
+</model>
+<model name="indicator_4">
+  <static>true</static>
+  <pose>1.7340802896616194 1.8827361640659173 0.05 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.3 0.3 0.02</size></box>
+      </geometry>
+      <material>
+        <ambient>1.0 0.5 0.0 1</ambient>
+        <diffuse>1.0 0.5 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_4_1">
+  <static>true</static>
+  <pose>1.2624164029410825 1.2143537716328663 0.15 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.15 0.15 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_4_2">
+  <static>true</static>
+  <pose>1.8993683085496542 1.5902752244243643 0.15 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.15 0.15 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_4_3">
+  <static>true</static>
+  <pose>1.7792467499724416 1.17702038842765 0.15 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.15 0.15 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="panel_5">
+  <static>true</static>
+  <pose>1.318032210761655 7.515474007401509 0.0 1.55 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <mesh>
+          <uri>model://solar_panel/meshes/solar_panel.obj</uri>
+          <scale>0.5 0.5 0.5</scale>
+        </mesh>
+      </geometry>
+    </visual>
+    <collision name="collision">
+      <geometry>
+        <box><size>1 1 0.1</size></box>
+      </geometry>
+    </collision>
+  </link>
+</model>
+<model name="indicator_5">
+  <static>true</static>
+  <pose>1.4217609833459677 7.95193927493791 0.05 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.3 0.3 0.02</size></box>
+      </geometry>
+      <material>
+        <ambient>1.0 0.5 0.0 1</ambient>
+        <diffuse>1.0 0.5 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_5_1">
+  <static>true</static>
+  <pose>1.523522692291588 7.674219597489662 0.15 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.15 0.15 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_5_2">
+  <static>true</static>
+  <pose>1.2362942962950885 7.787484192332395 0.15 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.15 0.15 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_5_3">
+  <static>true</static>
+  <pose>1.128500030515331 7.380144598958576 0.15 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.15 0.15 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+<model name="contamination_5_4">
+  <static>true</static>
+  <pose>1.3684786031312464 7.7311377373957475 0.15 0 0 0</pose>
+  <link name="link">
+    <visual name="visual">
+      <geometry>
+        <box><size>0.15 0.15 0.01</size></box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.8 0.0 1</ambient>
+        <diffuse>0.0 0.8 0.0 1</diffuse>
+      </material>
+    </visual>
+  </link>
+</model>
+</world>
 </sdf>

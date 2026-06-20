@@ -1,0 +1,418 @@
+... logging to /home/clover/.ros/log/d4dfe63a-6c8e-11f1-a73a-7dcfb175762f/roslaunch-clover-dev-4419.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/home/clover/catkin_ws/src/clover/clover/launch/simulator.launch
+[1mstarted roslaunch server http://clover-dev.local:43939/[0m
+
+SUMMARY
+========
+
+CLEAR PARAMETERS
+ * /aruco_detect/
+ * /aruco_map/
+ * /led/led_effect/
+ * /main_camera_nodelet_manager/
+ * /mavros/
+ * /optical_flow/
+ * /simple_offboard/
+ * /vpe_publisher/
+
+PARAMETERS
+ * /aruco_detect/cornerRefinementMethod: 2
+ * /aruco_detect/estimate_poses: True
+ * /aruco_detect/known_vertical: map
+ * /aruco_detect/length: 0.22
+ * /aruco_detect/minMarkerPerimeterRate: 0.075
+ * /aruco_detect/send_tf: True
+ * /aruco_detect/transform_timeout: 0.1
+ * /aruco_detect/use_map_markers: True
+ * /aruco_map/frame_id: aruco_map_detected
+ * /aruco_map/image_axis: True
+ * /aruco_map/known_vertical: map
+ * /aruco_map/map: /home/clover/catk...
+ * /aruco_map/markers/child_frame_id_prefix: aruco_
+ * /aruco_map/markers/frame_id: aruco_map
+ * /drone_description: <?xml version="1....
+ * /gazebo/enable_ros_network: True
+ * /led/led_effect/blink_rate: 2
+ * /led/led_effect/fade_period: 0.5
+ * /led/led_effect/notify/acro/b: 0
+ * /led/led_effect/notify/acro/g: 155
+ * /led/led_effect/notify/acro/r: 245
+ * /led/led_effect/notify/altctl/b: 40
+ * /led/led_effect/notify/altctl/g: 255
+ * /led/led_effect/notify/altctl/r: 255
+ * /led/led_effect/notify/connected/effect: rainbow
+ * /led/led_effect/notify/disconnected/b: 50
+ * /led/led_effect/notify/disconnected/effect: blink
+ * /led/led_effect/notify/disconnected/g: 50
+ * /led/led_effect/notify/disconnected/r: 255
+ * /led/led_effect/notify/error/b: 0
+ * /led/led_effect/notify/error/effect: flash
+ * /led/led_effect/notify/error/g: 0
+ * /led/led_effect/notify/error/ignore: ['[lpe] vision po...
+ * /led/led_effect/notify/error/r: 255
+ * /led/led_effect/notify/low_battery/b: 0
+ * /led/led_effect/notify/low_battery/effect: blink_fast
+ * /led/led_effect/notify/low_battery/g: 0
+ * /led/led_effect/notify/low_battery/r: 255
+ * /led/led_effect/notify/low_battery/threshold: 3.6
+ * /led/led_effect/notify/offboard/b: 250
+ * /led/led_effect/notify/offboard/g: 20
+ * /led/led_effect/notify/offboard/r: 220
+ * /led/led_effect/notify/posctl/b: 220
+ * /led/led_effect/notify/posctl/g: 100
+ * /led/led_effect/notify/posctl/r: 50
+ * /led/led_effect/notify/stabilized/b: 50
+ * /led/led_effect/notify/stabilized/g: 180
+ * /led/led_effect/notify/stabilized/r: 30
+ * /led/led_effect/notify/startup/b: 255
+ * /led/led_effect/notify/startup/g: 255
+ * /led/led_effect/notify/startup/r: 255
+ * /led/led_effect/rainbow_period: 5
+ * /main_camera/main_camera_markers/scale: 3.0
+ * /main_camera_nodelet_manager/num_worker_threads: 2
+ * /mavros/conn/heartbeat_rate: 1.0
+ * /mavros/conn/system_time_rate: 1.0
+ * /mavros/conn/timeout: 8
+ * /mavros/conn/timesync_rate: 10.0
+ * /mavros/distance_sensor/rangefinder/field_of_view: 0.5
+ * /mavros/distance_sensor/rangefinder/frame_id: rangefinder
+ * /mavros/distance_sensor/rangefinder/id: 0
+ * /mavros/distance_sensor/rangefinder/orientation: PITCH_270
+ * /mavros/distance_sensor/rangefinder_sub/covariance: 1
+ * /mavros/distance_sensor/rangefinder_sub/id: 1
+ * /mavros/distance_sensor/rangefinder_sub/orientation: PITCH_270
+ * /mavros/distance_sensor/rangefinder_sub/subscriber: True
+ * /mavros/fake_gps/eph: 2.0
+ * /mavros/fake_gps/epv: 2.0
+ * /mavros/fake_gps/fix_type: 3
+ * /mavros/fake_gps/geo_origin/alt: 408.0
+ * /mavros/fake_gps/geo_origin/lat: 47.3667
+ * /mavros/fake_gps/geo_origin/lon: 8.55
+ * /mavros/fake_gps/gps_rate: 5.0
+ * /mavros/fake_gps/mocap_transform: True
+ * /mavros/fake_gps/satellites_visible: 5
+ * /mavros/fake_gps/tf/child_frame_id: fix
+ * /mavros/fake_gps/tf/frame_id: map
+ * /mavros/fake_gps/tf/listen: False
+ * /mavros/fake_gps/tf/rate_limit: 10.0
+ * /mavros/fake_gps/tf/send: False
+ * /mavros/fake_gps/use_mocap: True
+ * /mavros/fake_gps/use_vision: False
+ * /mavros/fcu_url: udp://@127.0.0.1:...
+ * /mavros/gcs_quiet_mode: True
+ * /mavros/gcs_url: 
+ * /mavros/global_position/child_frame_id: base_link
+ * /mavros/global_position/frame_id: map
+ * /mavros/global_position/gps_uere: 1.0
+ * /mavros/global_position/rot_covariance: 99999.0
+ * /mavros/global_position/tf/child_frame_id: base_link
+ * /mavros/global_position/tf/frame_id: map
+ * /mavros/global_position/tf/global_frame_id: earth
+ * /mavros/global_position/tf/send: False
+ * /mavros/global_position/use_relative_alt: True
+ * /mavros/imu/angular_velocity_stdev: 0.000349065850398...
+ * /mavros/imu/frame_id: base_link
+ * /mavros/imu/linear_acceleration_stdev: 0.0003
+ * /mavros/imu/magnetic_stdev: 0.0
+ * /mavros/imu/orientation_stdev: 1.0
+ * /mavros/local_position/frame_id: map
+ * /mavros/local_position/tf/send: True
+ * /mavros/local_position/tf/send_fcu: False
+ * /mavros/mission/pull_after_gcs: True
+ * /mavros/mocap/use_pose: True
+ * /mavros/mocap/use_tf: False
+ * /mavros/odometry/in/child_frame_id: base_link
+ * /mavros/odometry/in/frame_id: odom
+ * /mavros/odometry/in/frame_tf/body_frame_orientation: flu
+ * /mavros/odometry/in/frame_tf/local_frame: local_origin_ned
+ * /mavros/odometry/out/frame_tf/body_frame_orientation: frd
+ * /mavros/odometry/out/frame_tf/local_frame: vision_ned
+ * /mavros/plugin_whitelist: ['altitude', 'com...
+ * /mavros/px4flow/frame_id: px4flow
+ * /mavros/px4flow/ranger_fov: 0.11868238913561441
+ * /mavros/px4flow/ranger_max_range: 5.0
+ * /mavros/px4flow/ranger_min_range: 0.3
+ * /mavros/setpoint_attitude/reverse_thrust: False
+ * /mavros/setpoint_attitude/tf/child_frame_id: target_attitude
+ * /mavros/setpoint_attitude/tf/frame_id: map
+ * /mavros/setpoint_attitude/tf/listen: False
+ * /mavros/setpoint_attitude/tf/rate_limit: 50.0
+ * /mavros/setpoint_attitude/use_quaternion: True
+ * /mavros/setpoint_position/mav_frame: LOCAL_NED
+ * /mavros/setpoint_position/tf/child_frame_id: target_position
+ * /mavros/setpoint_position/tf/frame_id: map
+ * /mavros/setpoint_position/tf/listen: False
+ * /mavros/setpoint_position/tf/rate_limit: 50.0
+ * /mavros/setpoint_raw/thrust_scaling: 1.0
+ * /mavros/setpoint_velocity/mav_frame: LOCAL_NED
+ * /mavros/startup_px4_usb_quirk: False
+ * /mavros/target_system_id: 1
+ * /mavros/time/publish_sim_time: False
+ * /mavros/time/time_ref_source: fcu
+ * /mavros/time/timesync_avg_alpha: 0.6
+ * /mavros/time/timesync_mode: MAVLINK
+ * /mavros/vibration/frame_id: base_link
+ * /mavros/vision_pose/tf/listen: False
+ * /mavros/vision_speed/listen_twist: True
+ * /mavros/vision_speed/twist_cov: True
+ * /optical_flow/calc_flow_gyro: True
+ * /optical_flow/disable_on_vpe: True
+ * /optical_flow/roi_rad: 0.8
+ * /rangefinder/range/covariance: 1
+ * /rangefinder/range/id: 1
+ * /rangefinder/range/orientation: PITCH_270
+ * /rangefinder/range/subscriber: True
+ * /rosapi/params_glob: [*]
+ * /rosapi/services_glob: [*]
+ * /rosapi/topics_glob: [*]
+ * /rosbridge_websocket/address: 0.0.0.0
+ * /rosbridge_websocket/authenticate: False
+ * /rosbridge_websocket/bson_only_mode: False
+ * /rosbridge_websocket/delay_between_messages: 0
+ * /rosbridge_websocket/fragment_timeout: 600
+ * /rosbridge_websocket/max_message_size: None
+ * /rosbridge_websocket/params_glob: [*]
+ * /rosbridge_websocket/port: 9090
+ * /rosbridge_websocket/retry_startup_delay: 5
+ * /rosbridge_websocket/services_glob: [*]
+ * /rosbridge_websocket/topics_glob: [*]
+ * /rosbridge_websocket/unregister_timeout: 10
+ * /rosbridge_websocket/use_compression: False
+ * /rosbridge_websocket/websocket_external_port: None
+ * /rosbridge_websocket/websocket_ping_interval: 0
+ * /rosbridge_websocket/websocket_ping_timeout: 30
+ * /rosdistro: noetic
+ * /rosversion: 1.16.0
+ * /simple_offboard/reference_frames/main_camera_optical: map
+ * /simple_offboard/terrain_frame_mode: range
+ * /use_sim_time: True
+ * /visualization/child_frame_id: base_link
+ * /visualization/fixed_frame_id: map
+ * /visualization/marker_scale: 1
+ * /visualization/max_track_size: 20
+ * /visualization/num_rotors: 4
+ * /vpe_publisher/force_init: True
+ * /vpe_publisher/frame_id: aruco_map_detected
+ * /vpe_publisher/offset_frame_id: aruco_map
+ * /web_video_server/default_stream_type: ros_compressed
+ * /web_video_server/publish_rate: 1.0
+
+NODES
+  /
+    aruco_detect (nodelet/nodelet)
+    aruco_map (nodelet/nodelet)
+    gazebo (gazebo_ros/gzserver)
+    gazebo_gui (gazebo_ros/gzclient)
+    main_camera_frame (tf2_ros/static_transform_publisher)
+    main_camera_nodelet_manager (nodelet/nodelet)
+    mavros (mavros/mavros_node)
+    optical_flow (nodelet/nodelet)
+    rangefinder_frame (tf2_ros/static_transform_publisher)
+    rosapi (rosapi/rosapi_node)
+    rosbridge_websocket (rosbridge_server/rosbridge_websocket)
+    simple_offboard (clover/simple_offboard)
+    sitl_0 (px4/px4)
+    spawn_clover_dev_4419_2280167124581361091 (gazebo_ros/spawn_model)
+    tf2_web_republisher (tf2_web_republisher/tf2_web_republisher)
+    visualization (mavros_extras/visualization)
+    vpe_publisher (clover/vpe_publisher)
+    web_video_server (web_video_server/web_video_server)
+  /led/
+    led_effect (clover/led)
+  /main_camera/
+    main_camera_markers (clover/camera_markers)
+    main_camera_throttle (topic_tools/throttle)
+Creating symlink /home/clover/catkin_ws/src/PX4-Autopilot/ROMFS/px4fmu_common -> /home/clover/.ros/etc
+
+______  __   __    ___ 
+| ___ \ \ \ / /   /   |
+| |_/ /  \ V /   / /| |
+|  __/   /   \  / /_| |
+| |     / /^\ \ \___  |
+\_|     \/   \/     |_/
+
+px4 starting.
+
+INFO  [px4] Calling startup script: /bin/sh etc/init.d-posix/rcS 0
+INFO  [init] found model autostart file as SYS_AUTOSTART=4500
+INFO  [param] selected parameter default file eeprom/parameters_4500
+INFO  [parameters] BSON document size 268 bytes, decoded 268 bytes (INT32:12, FLOAT:2)
+[param] Loaded: eeprom/parameters_4500
+Gazebo multi-robot simulator, version 11.12.0
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+INFO  [dataman] data manager file './dataman' size is 7866640 bytes
+PX4 SIM HOST: localhost
+Gazebo multi-robot simulator, version 11.12.0
+Copyright (C) 2012 Open Source Robotics Foundation.
+Released under the Apache 2 License.
+http://gazebosim.org
+
+[1;33m[Wrn] [GuiIface.cc:200] [0m[1;33mg/gui-plugin is really loading a SystemPlugin. [0m[1;33mTo load a GUI plugin please use --gui-client-plugin 
+[0mINFO  [simulator] Waiting for simulator to accept connection on TCP port 4560
+2026-06-20 13:00:17+0300 [-] Log opened.
+2026-06-20 13:00:17+0300 [-] registered capabilities (classes):
+2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.call_service.CallService'>
+2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.advertise.Advertise'>
+2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.publish.Publish'>
+2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.subscribe.Subscribe'>
+2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.defragmentation.Defragment'>
+2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.advertise_service.AdvertiseService'>
+2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.service_response.ServiceResponse'>
+2026-06-20 13:00:17+0300 [-]  - <class 'rosbridge_library.capabilities.unadvertise_service.UnadvertiseService'>
+[0m[ INFO] [1781949616.305901674]: ros.mavros: FCU URL: udp://@127.0.0.1:14580[0m
+[0m[ INFO] [1781949616.371371344]: ros.rosconsole_bridge.mavconn: udp0: Bind address: 0.0.0.0:14555[0m
+[0m[ INFO] [1781949616.371504658]: ros.rosconsole_bridge.mavconn: udp0: Remote address: 127.0.0.1:14580[0m
+[0m[ INFO] [1781949616.371597955]: ros.mavros: GCS bridge disabled[0m
+[0m[ INFO] [1781949616.607900341]: ros.mavros: Plugin 3dr_radio blacklisted[0m
+[0m[ INFO] [1781949616.607959043]: ros.mavros: Plugin actuator_control blacklisted[0m
+[0m[ INFO] [1781949616.607981375]: ros.mavros: Plugin adsb blacklisted[0m
+[0m[ INFO] [1781949616.732051253]: ros.mavros: Plugin altitude loaded[0m
+[0m[ INFO] [1781949616.787356094]: ros.mavros: Plugin altitude initialized[0m
+[0m[ INFO] [1781949616.787440334]: ros.mavros: Plugin cam_imu_sync blacklisted[0m
+[0m[ INFO] [1781949616.787478206]: ros.mavros: Plugin camera blacklisted[0m
+[0m[ INFO] [1781949616.787511880]: ros.mavros: Plugin cellular_status blacklisted[0m
+[0m[ INFO] [1781949616.787618583]: ros.mavros: Plugin command loaded[0m
+[0m[ INFO] [1781949617.113221191]: ros.mavros: Plugin command initialized[0m
+[0m[ INFO] [1781949617.113333855]: ros.mavros: Plugin companion_process_status blacklisted[0m
+[0m[ INFO] [1781949617.113408517]: ros.mavros: Plugin debug_value blacklisted[0m
+[0m[ INFO] [1781949617.130202938]: ros.mavros: Plugin distance_sensor loaded[0m
+[0m[ INFO] [1781949617.248506032]: ros.mavros: Plugin distance_sensor initialized[0m
+[0m[ INFO] [1781949617.248911122]: ros.mavros: Plugin esc_status blacklisted[0m
+[0m[ INFO] [1781949617.249040287]: ros.mavros: Plugin esc_telemetry blacklisted[0m
+[0m[ INFO] [1781949617.249102846]: ros.mavros: Plugin fake_gps blacklisted[0m
+[0m[ INFO] [1781949617.249242411]: ros.mavros: Plugin ftp loaded[0m
+[0m[ INFO] [1781949617.271810392]: ros.mavros: Plugin ftp initialized[0m
+[0m[ INFO] [1781949617.271930330]: ros.mavros: Plugin geofence blacklisted[0m
+[0m[ INFO] [1781949617.272072530]: ros.mavros: Plugin global_position loaded[0m
+[0m[ INFO] [1781949617.569509907]: ros.mavros: Plugin global_position initialized[0m
+[0m[ INFO] [1781949617.569546887]: ros.mavros: Plugin gps_input blacklisted[0m
+[0m[ INFO] [1781949617.569563609]: ros.mavros: Plugin gps_rtk blacklisted[0m
+[0m[ INFO] [1781949617.569571243]: ros.mavros: Plugin gps_status blacklisted[0m
+[0m[ INFO] [1781949617.569578297]: ros.mavros: Plugin guided_target blacklisted[0m
+[0m[ INFO] [1781949617.569594918]: ros.mavros: Plugin hil blacklisted[0m
+[0m[ INFO] [1781949617.569601601]: ros.mavros: Plugin home_position blacklisted[0m
+[0m[ INFO] [1781949617.569693435]: ros.mavros: Plugin imu loaded[0m
+[0m[ INFO] [1781949617.825315993]: ros.mavros: Plugin imu initialized[0m
+[0m[ INFO] [1781949617.825356660]: ros.mavros: Plugin landing_target blacklisted[0m
+[0m[ INFO] [1781949617.825461780]: ros.mavros: Plugin local_position loaded[0m
+[0m[ INFO] [1781949617.938203288]: ros.mavros: Plugin local_position initialized[0m
+[0m[ INFO] [1781949617.938239166]: ros.mavros: Plugin log_transfer blacklisted[0m
+[0m[ INFO] [1781949617.938256860]: ros.mavros: Plugin mag_calibration_status blacklisted[0m
+[0m[ INFO] [1781949617.938347923]: ros.mavros: Plugin manual_control loaded[0m
+[0m[ INFO] [1781949617.959005017]: ros.mavros: Plugin manual_control initialized[0m
+[0m[ INFO] [1781949617.959035475]: ros.mavros: Plugin mocap_pose_estimate blacklisted[0m
+[0m[ INFO] [1781949617.959045053]: ros.mavros: Plugin mount_control blacklisted[0m
+[0m[ INFO] [1781949617.959052647]: ros.mavros: Plugin nav_controller_output blacklisted[0m
+[0m[ INFO] [1781949617.959067015]: ros.mavros: Plugin obstacle_distance blacklisted[0m
+[0m[ INFO] [1781949617.959075060]: ros.mavros: Plugin odom blacklisted[0m
+[0m[ INFO] [1781949617.959085780]: ros.mavros: Plugin onboard_computer_status blacklisted[0m
+[0m[ INFO] [1781949617.959177414]: ros.mavros: Plugin param loaded[0m
+[0m[ INFO] [1781949617.966486611]: ros.mavros: Plugin param initialized[0m
+[0m[ INFO] [1781949617.9662026-06-20 13:00:17+0300 [-] WebSocketServerFactory starting on 9090
+2026-06-20 13:00:17+0300 [-] Starting factory <autobahn.twisted.websocket.WebSocketServerFactory object at 0x7f5e37529b20>
+2026-06-20 13:00:17+0300 [-] [INFO] [1781949617.994481, 0.000000]: rosout: Rosbridge WebSocket server started at ws://0.0.0.0:9090
+[INFO] [1781949617.231872, 0.000000]: Loading model XML from ros parameter drone_description
+[INFO] [1781949617.259261, 0.000000]: Waiting for service /gazebo/spawn_urdf_model
+[INFO] [1781949619.833857, 0.000000]: Calling service /gazebo/spawn_urdf_model
+[INFO] [1781949620.812766, 0.000000]: Spawn status: SpawnModel: Successfully spawned entity
+[0m[ INFO] [1781949617.293260959]: Finished loading Gazebo ROS API Plugin.[0m
+[1;32m[Msg] [0m[1;32mWaiting for master.[0m[1;32m
+[0m[1;32m[0m[1;32m[Msg] [0m[1;32mConnected to gazebo master @ [0m[1;32mhttp://127.0.0.1:11345[0m[1;32m
+[0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m192.168.230.128[0m[1;32m
+[0m[1;32m[0m[0m[ INFO] [1781949617.329756689]: waitForService: Service [/gazebo/set_physics_properties] has not been advertised, waiting...[0m
+[1;32m[Msg] [0m[1;32mLoading world file [[0m[1;32m/home/clover/Documents/Kval_arhip/solar_farm.world[0m[1;32m][0m[1;32m
+[0m[1;32m[0m[0m[ INFO] [1781949619.845555232]: waitForService: Service [/gazebo/set_physics_properties] is now available.[0m
+[0m[ INFO] [1781949620.828666240, 0.004000000]: Physics dynamic reconfigure ready.[0m
+[0m[ INFO] [1781949621.158450800, 0.004000000]: Camera Plugin: Using the 'robotNamespace' param: '/'[0m
+[0m[ INFO] [1781949621.161656009, 0.004000000]: Camera Plugin (ns = /)  <tf_prefix_>, set to ""[0m
+[1;32m[Msg] [0m[1;32mConnecting to PX4 SITL using [0m[1;32mTCP[0m[1;32m
+[0m[1;32m[Msg] [0m[1;32mLockstep is [0m[1;32menabled[0m[1;32m
+[0m[1;32m[Msg] [0m[1;32mSpeed factor set to: [0m[1;32m1[0m[1;32m
+[0m[1;33m[Wrn] [gazebo_mavlink_interface.cpp:152] [0m[1;33mNo identifier on joint. Using 0 as default sensor ID[0m[1;33m
+[0m[1;33m[0mINFO  [simulator] Simulator connected on TCP port 4560.
+INFO  [commander] LED: open /dev/led0 failed (22)
+INFO  [init] Mixer: etc/mixers/quad_w.main.mix on /dev/pwm_output0
+INFO  [init] setting PWM_AUX_OUT none
+INFO  [mavlink] mode: Normal, data rate: 4000000 B/s on udp port 18570 remote port 14550
+INFO  [mavlink] mode: Onboard, data rate: 4000000 B/s on udp port 14580 remote port 14540
+INFO  [mavlink] partner IP: 127.0.0.1
+INFO  [mavlink] mode: Onboard, data rate: 4000 B/s on udp port 14280 remote port 14030
+INFO  [mavlink] mode: Gimbal, data rate: 400000 B/s on udp port 13030 remote port 13280
+INFO  [logger] logger started (mode=all)
+INFO  [logger] Start file log (type: full)
+INFO  [logger] [logger] ./log/2026-06-20/10_00_22.ulg	
+INFO  [logger] Opened full log file: ./log/2026-06-20/10_00_22.ulg
+INFO  [mavlink] MAVLink only on localhost (set param MAV_{i}_BROADCAST = 1 to enable network)
+INFO  [mavlink] MAVLink only on localhost (set param MAV_{i}_BROADCAST = 1 to enable network)
+INFO  [px4] Startup script returned successfully
+pxh> [0m[ INFO] [1781949617.934331402]: waitForService: Service [/gazebo_gui/set_physics_properties] has not been advertised, waiting...[0m
+[0m[ INFO] [1781949617.941195943]: Finished loading Gazebo ROS API Plugin.[0m
+[1;32m[Msg] [0m[1;32mWaiting for master.[0m[1;32m
+[0m[1;32m[0m[1;32m[Msg] [0m[1;32mConnected to gazebo master @ [0m[1;32mhttp://127.0.0.1:11345[0m[1;32m
+[0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m192.168.230.128[0m[1;32m
+[0m[1;32m[0m[0m[ INFO] [1781949622.134359793, 0.392000000]: LedController has started (as client) in namespace ''[0m
+[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[1;32m[Msg] [0m[1;32mUsing MAVLink protocol v2.0
+[0m[0m[ INFO] [1781949621.421773664, 0.004000000]: Initialize LED Controller[0m
+[0m[ INFO] [1781949622.094422153, 0.360000000]: LedController has started (as server) in namespace ''[0m
+[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m610516]: ros.mavros: Plugin play_tune blacklisted[0m
+[0m[ INFO] [1781949617.966747807]: ros.mavros: Plugin px4flow loaded[0m
+[0m[ INFO] [1781949617.992873781]: ros.mavros: Plugin px4flow initialized[0m
+[0m[ INFO] [1781949617.993178210]: ros.mavros: Plugin rallypoint blacklisted[0m
+[0m[ INFO] [1781949617.993251609]: ros.mavros: Plugin rangefinder blacklisted[0m
+[0m[ INFO] [1781949617.993401875]: ros.mavros: Plugin rc_io loaded[0m
+[0m[ INFO] [1781949618.000622498]: ros.mavros: Plugin rc_io initialized[0m
+[0m[ INFO] [1781949618.000801889]: ros.mavros: Plugin safety_area blacklisted[0m
+[0m[ INFO] [1781949618.000903732]: ros.mavros: Plugin setpoint_accel blacklisted[0m
+[0m[ INFO] [1781949618.001271932]: ros.mavros: Plugin setpoint_attitude loaded[0m
+[0m[ INFO] [1781949618.062603674]: ros.mavros: Plugin setpoint_attitude initialized[0m
+[0m[ INFO] [1781949618.062829152]: ros.mavros: Plugin setpoint_position loaded[0m
+[0m[ INFO] [1781949618.163752596]: ros.mavros: Plugin setpoint_position initialized[0m
+[0m[ INFO] [1781949618.164275519]: ros.mavros: Plugin setpoint_raw loaded[0m
+[0m[ INFO] [1781949618.216772487]: ros.mavros: Plugin setpoint_raw initialized[0m
+[0m[ INFO] [1781949618.217085772]: ros.mavros: Plugin setpoint_trajectory blacklisted[0m
+[0m[ INFO] [1781949618.217241518]: ros.mavros: Plugin setpoint_velocity loaded[0m
+[0m[ INFO] [1781949618.238548211]: ros.mavros: Plugin setpoint_velocity initialized[0m
+[0m[ INFO] [1781949618.238856887]: ros.mavros: Plugin sys_status loaded[0m
+[0m[ INFO] [1781949618.252025631]: ros.mavros: Plugin sys_status initialized[0m
+[0m[ INFO] [1781949618.252410051]: ros.mavros: Plugin sys_time loaded[0m
+[0m[ INFO] [1781949618.265368050]: ros.mavros.time: TM: Timesync mode: MAVLINK[0m
+[0m[ INFO] [1781949618.267026992]: ros.mavros.time: TM: Not publishing sim time[0m
+[0m[ INFO] [1781949618.268948843]: ros.mavros: Plugin sys_time initialized[0m
+[0m[ INFO] [1781949618.268988999]: ros.mavros: Plugin terrain blacklisted[0m
+[0m[ INFO] [1781949618.269008225]: ros.mavros: Plugin trajectory blacklisted[0m
+[0m[ INFO] [1781949618.269025999]: ros.mavros: Plugin tunnel blacklisted[0m
+[0m[ INFO] [1781949618.269042541]: ros.mavros: Plugin vfr_hud blacklisted[0m
+[0m[ INFO] [1781949618.269058982]: ros.mavros: Plugin vibration blacklisted[0m
+[0m[ INFO] [1781949618.269195601]: ros.mavros: Plugin vision_pose_estimate loaded[0m
+[0m[ INFO] [1781949618.280027556]: ros.mavros: Plugin vision_pose_estimate initialized[0m
+[0m[ INFO] [1781949618.280143766]: ros.mavros: Plugin vision_speed_estimate blacklisted[0m
+[0m[ INFO] [1781949618.280165347]: ros.mavros: Plugin waypoint blacklisted[0m
+[0m[ INFO] [1781949618.280178372]: ros.mavros: Plugin wheel_odometry blacklisted[0m
+[0m[ INFO] [1781949618.280189453]: ros.mavros: Plugin wind_estimation blacklisted[0m
+[0m[ INFO] [1781949618.280563273]: ros.mavros: Built-in SIMD instructions: SSE, SSE2[0m
+[0m[ INFO] [1781949618.280690866]: ros.mavros: Built-in MAVLink package version: 2022.12.30[0m
+[0m[ INFO] [1781949618.280742975]: ros.mavros: Known MAVLink dialects: common ardupilotmega ASLUAV AVSSUAS all cubepilot development icarous matrixpilot paparazzi standard storm32 uAvionix ualberta[0m
+[0m[ INFO] [1781949618.281017406]: ros.mavros: MAVROS started. MY ID 1.240, TARGET ID 1.1[0m
+[0m[ INFO] [1781949622.237122751, 0.484000000]: ros.rosconsole_bridge.mavconn: udp0: Remote address: 127.0.0.1:14580[0m
+[0m[ INFO] [1781949622.251614436, 0.496000000]: ros.mavros.imu: IMU: High resolution IMU detected![0m
+[0m[ INFO] [1781949623.225558731, 1.476000000]: ros.mavros: CON: Got HEARTBEAT, connected. FCU: PX4 Autopilot[0m
+[0m[ INFO] [1781949623.225827071, 1.476000000]: ros.mavros.imu: IMU: High resolution IMU detected![0m
+[0m[ INFO] [1781949623.809730001, 2.056000000]: ros.mavros.imu: IMU: Attitude quaternion IMU detected![0m
+[0m[ INFO] [1781949624.235661177, 2.380000000]: ros.mavros.sys: VER: 1.1: Capabilities         0x000000000000e4ff[0m
+[0m[ INFO] [1781949624.235756297, 2.380000000]: ros.mavros.sys: VER:[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[0m[1;33m[0m[INFO] [1781949617.809867, 0.000000]: rosout: Rosapi started
+shutdown request: [/rosapi] Reason: new node registered with same name
+2026-06-20 13:00:31+0300 [-] shutdown request: [/rosbridge_websocket] Reason: new node registered with same name

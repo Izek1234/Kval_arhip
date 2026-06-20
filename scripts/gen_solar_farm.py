@@ -154,7 +154,7 @@ def generate_solar_panels(num_panels=5, min_edge_dist=2.0):
 def create_solar_panel_sdf(name, x, y):
     return f"""<model name="{name}">
   <static>true</static>
-  <pose>{x} {y} 0 0 0.8 0</pose>
+  <pose>{x} {y} 0.0 1.55 0 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>

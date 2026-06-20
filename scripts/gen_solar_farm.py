@@ -127,9 +127,10 @@ HEAT_COLORS_RGB = {
 }
 
 
-def generate_solar_panels(num_panels=5, min_edge_dist=2.0):
+def generate_solar_panels(num_panels=5, min_edge_dist=2.0, aruco_margin=0.4):
     panels = []
     panel_size = 1.0
+    aruco_positions = [(ix * 1.0, iy * 1.0) for ix in range(10) for iy in range(10)]
     for i in range(num_panels):
         attempts = 0
         while attempts < 1000:
@@ -141,6 +142,11 @@ def generate_solar_panels(num_panels=5, min_edge_dist=2.0):
                 if dist - panel_size < min_edge_dist:
                     ok = False
                     break
+            if ok:
+                for ax, ay in aruco_positions:
+                    if math.sqrt((x - ax) ** 2 + (y - ay) ** 2) < aruco_margin:
+                        ok = False
+                        break
             if ok:
                 heat_color = random.choice(['yellow', 'orange', 'red'])
                 heat_state = HEAT_STATES[heat_color]
@@ -193,9 +199,8 @@ def create_indicator_platform_sdf(name, x, y, color_rgb):
 
 
 def create_contamination_sdf(name, panel_x, panel_y):
-    cx = panel_x + random.uniform(-0.3, 0.3)
-    cy = panel_y + random.uniform(-0.3, 0.3)
-    # z рассчитывается по наклону панели: поверхность поднимается вдоль x
+    cx = panel_x + random.uniform(-0.35, 0.35)
+    cy = panel_y + random.uniform(-0.35, 0.35)
     z = (cx - panel_x) * math.sin(0.8) + 0.06
     return f"""<model name="{name}">
   <static>true</static>
@@ -203,7 +208,7 @@ def create_contamination_sdf(name, panel_x, panel_y):
   <link name="link">
     <visual name="visual">
       <geometry>
-        <box><size>0.15 0.15 0.01</size></box>
+        <box><size>0.08 0.08 0.01</size></box>
       </geometry>
       <material>
         <ambient>0.0 0.8 0.0 1</ambient>
@@ -214,15 +219,48 @@ def create_contamination_sdf(name, panel_x, panel_y):
 </model>"""
 
 
-def generate_world(template_path, output_path, panels):
+def _indicator_pos_right(px, py, aruco_positions, aruco_margin=0.4):
+    ind_half = 0.15
+    min_dist = aruco_margin + ind_half
+    # Смещения по Y (справа от панели) и X — приоритет справа (+Y)
+    offsets_y = [0.55, 0.45, 0.65, 0.75, 0.35, 0.85, 0.95, 1.05]
+    offsets_x = [0.0, -0.15, 0.15, -0.3, 0.3, -0.4, 0.4]
+    for dy in offsets_y:
+        for dx in offsets_x:
+            ind_x = px + dx
+            ind_y = py + dy
+            collision = False
+            for ax, ay in aruco_positions:
+                if math.sqrt((ind_x - ax) ** 2 + (ind_y - ay) ** 2) < min_dist:
+                    collision = True
+                    break
+            if not collision:
+                return ind_x, ind_y
+    # Fallback: слева от панели (-Y)
+    for dy in [-0.55, -0.45, -0.65]:
+        for dx in offsets_x:
+            ind_x = px + dx
+            ind_y = py + dy
+            collision = False
+            for ax, ay in aruco_positions:
+                if math.sqrt((ind_x - ax) ** 2 + (ind_y - ay) ** 2) < min_dist:
+                    collision = True
+                    break
+            if not collision:
+                return ind_x, ind_y
+    return px, py + offsets_y[0]
+
+
+def generate_world(template_path, output_path, panels, aruco_positions=None):
+    if aruco_positions is None:
+        aruco_positions = [(ix * 1.0, iy * 1.0) for ix in range(10) for iy in range(10)]
     with open(template_path, 'r') as f:
         content = f.read()
 
     models_sdf = ""
     for i, (px, py, heat_color, heat_state, cont_count) in enumerate(panels):
         models_sdf += create_solar_panel_sdf(f"panel_{i+1}", px, py) + "\n"
-        ind_x = px + random.uniform(-0.3, 0.3)
-        ind_y = py + random.uniform(0.35, 0.45)
+        ind_x, ind_y = _indicator_pos_right(px, py, aruco_positions)
         models_sdf += create_indicator_platform_sdf(
             f"indicator_{i+1}", ind_x, ind_y, HEAT_COLORS_RGB[heat_color]
         ) + "\n"

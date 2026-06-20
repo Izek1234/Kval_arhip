@@ -193,11 +193,13 @@ def create_indicator_platform_sdf(name, x, y, color_rgb):
 
 
 def create_contamination_sdf(name, panel_x, panel_y):
-    cx = panel_x + random.uniform(-0.35, 0.35)
-    cy = panel_y + random.uniform(-0.35, 0.35)
+    cx = panel_x + random.uniform(-0.3, 0.3)
+    cy = panel_y + random.uniform(-0.3, 0.3)
+    # z рассчитывается по наклону панели: поверхность поднимается вдоль x
+    z = (cx - panel_x) * math.sin(0.8) + 0.06
     return f"""<model name="{name}">
   <static>true</static>
-  <pose>{cx} {cy} 0.15 0 0 0</pose>
+  <pose>{cx} {cy} {z:.3f} 0 0.8 0</pose>
   <link name="link">
     <visual name="visual">
       <geometry>

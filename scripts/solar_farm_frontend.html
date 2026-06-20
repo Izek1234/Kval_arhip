@@ -9,38 +9,36 @@ body {
   color: #e0e0e0;
   font-family: Arial, sans-serif;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 .container {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  width: 95%;
-  justify-content: space-between;
-  align-items: flex-start;
+  padding: 20px 40px;
+  min-height: calc(100vh - 50px);
+  align-items: stretch;
 }
 .left-panel {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-left: 40px;
+  flex-shrink: 0;
+  width: 260px;
 }
 .btn {
-  padding: 20px 50px;
-  font-size: 20px;
+  padding: 14px 24px;
+  font-size: 18px;
   color: #fff;
   background: #333;
   border: 2px solid #555;
   border-radius: 12px;
   cursor: pointer;
-  width: 260px;
+  width: 100%;
   text-align: center;
   transition: all 0.3s;
 }
-.btn:not(:disabled):hover { background: #555; transform: scale(1.05); }
+.btn:not(:disabled):hover { background: #555; transform: scale(1.03); }
 .btn:disabled { background: #666; cursor: not-allowed; opacity: 0.4; }
 .btn-start { border-color: #4CAF50; }
 .btn-stop { border-color: #f44336; }
@@ -52,6 +50,7 @@ body {
   flex-direction: column;
   gap: 15px;
   align-items: center;
+  min-width: 0;
 }
 .report-box {
   background: #252540;
@@ -59,8 +58,9 @@ body {
   border-radius: 12px;
   padding: 15px;
   width: 100%;
-  max-width: 500px;
-  height: 300px;
+  max-width: 550px;
+  min-height: 180px;
+  max-height: 300px;
   overflow-y: auto;
   font-size: 14px;
   white-space: pre-wrap;
@@ -71,7 +71,7 @@ body {
   border-radius: 12px;
   padding: 10px;
   width: 100%;
-  max-width: 500px;
+  max-width: 550px;
   height: 400px;
   position: relative;
 }
@@ -83,9 +83,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-right: 40px;
+  flex-shrink: 0;
+  width: 420px;
+  align-items: center;
 }
 .solar-img {
+  width: 100%;
   max-width: 400px;
   border-radius: 12px;
   border: 3px solid #444;
@@ -99,9 +102,8 @@ body {
   background: #333;
 }
 .signature {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
+  text-align: center;
+  padding: 10px;
   font-size: 13px;
   color: #666;
 }

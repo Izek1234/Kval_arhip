@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(do *)"
+      "Bash(do *)",
+      "Bash(git *)",
+      "Bash(dir *)"
     ]
-  }
+  },
+  "$version": 4
 }

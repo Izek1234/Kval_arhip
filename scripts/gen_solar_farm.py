@@ -198,10 +198,23 @@ def create_indicator_platform_sdf(name, x, y, color_rgb):
 </model>"""
 
 
-def create_contamination_sdf(name, panel_x, panel_y):
-    cx = panel_x + random.uniform(-0.15, 0.15)
-    cy = panel_y + random.uniform(-0.15, 0.15)
-    z = 0.6
+def _place_contamination(panel_x, panel_y, existing, cont_size=0.08, min_gap=0.02, max_attempts=200):
+    half_panel = 0.4
+    min_dist = cont_size + min_gap
+    for _ in range(max_attempts):
+        cx = panel_x + random.uniform(-half_panel, half_panel)
+        cy = panel_y + random.uniform(-half_panel, half_panel)
+        collision = False
+        for ex, ey in existing:
+            if math.sqrt((cx - ex) ** 2 + (cy - ey) ** 2) < min_dist:
+                collision = True
+                break
+        if not collision:
+            return cx, cy
+    return None
+
+
+def create_contamination_sdf(name, cx, cy, z=0.6):
     return f"""<model name="{name}">
   <static>true</static>
   <pose>{cx} {cy} {z:.3f} 0 0 0</pose>
@@ -237,10 +250,15 @@ def generate_world(template_path, output_path, panels, aruco_positions=None):
         models_sdf += create_indicator_platform_sdf(
             f"indicator_{i+1}", ind_x, ind_y, HEAT_COLORS_RGB[heat_color]
         ) + "\n"
+        existing_cont = []
         for j in range(cont_count):
-            models_sdf += create_contamination_sdf(
-                f"contamination_{i+1}_{j+1}", px, py
-            ) + "\n"
+            pos = _place_contamination(px, py, existing_cont)
+            if pos is not None:
+                cx, cy = pos
+                existing_cont.append((cx, cy))
+                models_sdf += create_contamination_sdf(
+                    f"contamination_{i+1}_{j+1}", cx, cy
+                ) + "\n"
 
     if '</world>' in content:
         content = content.replace('</world>', models_sdf + '</world>')

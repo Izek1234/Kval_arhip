@@ -199,10 +199,10 @@ def create_indicator_platform_sdf(name, x, y, color_rgb):
 
 
 def _place_contamination(panel_x, panel_y, existing, cont_size=0.08, min_gap=0.02, max_attempts=200):
-    half_panel = 0.4
+    half_panel = 0.2
     min_dist = cont_size + min_gap
     for _ in range(max_attempts):
-        cx = panel_x + random.uniform(-half_panel, half_panel)
+        cx = panel_x + random.uniform(-half_panel, half_panel)+0.15
         cy = panel_y + random.uniform(-half_panel, half_panel)
         collision = False
         for ex, ey in existing:

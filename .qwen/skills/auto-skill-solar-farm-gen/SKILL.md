@@ -11,7 +11,7 @@ extracted_at: '2026-06-20T10:20:38.403Z'
 The project uses `scripts/gen_solar_farm.py` to generate a Gazebo world with solar panels, indicator platforms, and contamination spots. ArUco markers occupy a regular 10×10 grid at integer coordinates (0–9 on both axes). All spawned objects must avoid overlapping ArUco markers **and each other**.
 
 ## Key layout facts
-- **ArUco grid**: 100 markers at positions `(i×1.0, j×1.0)` for `i,j ∈ [0..9]`
+- **ArUco grid**: 100 markers at physical positions `(ID%10, 9-(ID//10))` for `ID ∈ [0..99]` (ID 17 missing). **Y-axis is inverted relative to naive `ID//10`** — see ArUco coordinate mismatch skill.
 - **Panel**: 1×1 box collision, mesh visual, tilted (rot_x=1.55). Panel center must be ≥0.4m from any ArUco center.
 - **Indicator platform**: 0.3×0.02 box. Currently uses simplified placement `(px-0.25, py+0.1)` — slightly left and above panel. **The `_indicator_pos_right` function accepts `aruco_positions` but doesn't use them yet** — a placeholder for future ArUco-aware placement. If ArUco avoidance is needed for indicators, the offset-grid approach from the previous version should be restored (see below).
 - **Contamination spots**: 0.08×0.08×0.01 boxes on panel surface, Z=0.6 (accounts for near-vertical panel tilt). Offset: ±0.2m from panel center **plus** a +0.15 X shift. Placed via `_place_contamination()` with collision avoidance.

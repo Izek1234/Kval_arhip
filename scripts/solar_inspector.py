@@ -27,7 +27,6 @@ try:
 except ImportError:
     HAS_IMAGE_GEOMETRY = False
 
-
 rospy.init_node('solar_inspector', disable_signals=True)
 
 # Сервисы
@@ -39,6 +38,7 @@ set_led = rospy.ServiceProxy('set_led', srv.SetLEDEffect)
 
 # Публикаторы
 solar_pub = rospy.Publisher('/solar', Image, queue_size=10)
+mask_pub = rospy.Publisher('/solar/mask', Image, queue_size=10)
 report_pub = rospy.Publisher('/buildings', String, queue_size=10)
 status_pub = rospy.Publisher('/mission/status', String, queue_size=10)
 
@@ -65,8 +65,8 @@ HEAT_HSV = {
     'red_high':((170, 100, 100), (180, 255, 255)),  # красная (верхний диапазон H)
 }
 
-# Цвета HSV для загрязнений (зелёные площадки)
-CONTAMINATION_HSV = ((35, 50, 50), (85, 255, 255))
+# Расширенный диапазон для зелёного (загрязнения)
+CONTAMINATION_HSV = ((30, 30, 30), (90, 255, 255))
 
 HEAT_LABELS = {
     'yellow': 'нормальное состояние',
@@ -90,7 +90,6 @@ shutdown_initiated = True
 def load_panels_data():
     """Загрузка данных о панелях из JSON, сгенерированного gen_solar_farm.py."""
     global panels_data
-    # Ищем в нескольких местах
     search_paths = [
         '/home/clover/nto_project/panels_data.json',
         'panels_data.json',
@@ -135,21 +134,13 @@ def land_wait():
     rospy.loginfo("[DISARM]")
 
 
-def img_xy_to_point(xy, dist):
-    """Перевод пиксельных координат в 3D-мировые."""
-    if camera_model is not None:
-        xy_rect = camera_model.rectifyPoint(xy)
-        ray = camera_model.projectPixelTo3dRay(xy_rect)
-        return Point(x=ray[0] * dist, y=ray[1] * dist, z=dist)
-    else:
-        # Fallback: простая проекция (камера 640x480, FOV ~60°)
-        px, py = xy
-        img_w, img_h = 640, 480
-        fov = math.radians(60)
-        scale = (2 * dist * math.tan(fov / 2)) / img_w
-        dx = (px - img_w / 2) * scale
-        dy = (py - img_h / 2) * scale
-        return Point(x=dx, y=dy, z=dist)
+def is_near_inspected(x, y, threshold=1.0):
+    """Проверяет, была ли уже обнаружена панель рядом с текущими координатами."""
+    for panel in inspected_panels:
+        dist = math.sqrt((panel['x'] - x) ** 2 + (panel['y'] - y) ** 2)
+        if dist < threshold:
+            return True
+    return False
 
 
 def detect_heat_color(hsv_img):
@@ -157,7 +148,6 @@ def detect_heat_color(hsv_img):
     for color_name, (low, high) in HEAT_HSV.items():
         mask = cv2.inRange(hsv_img, np.array(low), np.array(high))
         if cv2.countNonZero(mask) > 50:
-            # Красная — объединяем два диапазона
             if color_name == 'red_low' or color_name == 'red_high':
                 return 'red'
             return color_name
@@ -169,15 +159,15 @@ def detect_contamination(hsv_img):
     low, high = CONTAMINATION_HSV
     mask = cv2.inRange(hsv_img, np.array(low), np.array(high))
 
-    # Морфологическая очистка
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
-    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel, iterations=2)
-    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel, iterations=1)
+    # Морфологическая очистка: сначала закрываем дыры, потом убираем шум
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel, iterations=2)
+    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel, iterations=1)
 
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-    # Фильтрация маленьких шумов
-    filtered = [c for c in contours if cv2.contourArea(c) > 20]
+    # Фильтрация совсем маленьких шумов (понижен порог)
+    filtered = [c for c in contours if cv2.contourArea(c) > 10]
 
     return len(filtered), filtered, mask
 
@@ -189,7 +179,7 @@ def set_led_color(color_name, duration=5):
         set_led(effect='fill', r=r, g=g, b=b)
         rospy.loginfo(f"LED set to {color_name} for {duration}s")
         rospy.sleep(duration)
-        set_led(effect='off')  # выключить после индикации
+        set_led(effect='off')
     except rospy.ServiceException:
         rospy.logwarn("LED service not available")
 
@@ -201,17 +191,19 @@ def inspect_panel(panel_idx, panel_x, panel_y):
     if shutdown_initiated:
         return
 
-    # Полёт к панели
+    # Защита от повторной инспекции
+    if is_near_inspected(panel_x, panel_y, threshold=0.8):
+        rospy.loginfo(f"Panel at ({panel_x:.2f}, {panel_y:.2f}) already inspected. Skipping.")
+        return
+
     rospy.loginfo(f"Inspecting panel #{panel_idx + 1} at ({panel_x:.2f}, {panel_y:.2f})")
     navigate_wait(x=panel_x, y=panel_y, z=1.5, speed=0.3, frame_id='aruco_map')
-    rospy.sleep(1)  # стабилизация
+    rospy.sleep(1)
 
-    # Получение изображения с камеры
     img_msg = rospy.wait_for_message('/main_camera/image_raw', Image, timeout=5)
     img = bridge.imgmsg_to_cv2(img_msg, 'bgr8')
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-    # Определение перегрева
     heat_color = detect_heat_color(hsv)
     if heat_color:
         heat_label = HEAT_LABELS[heat_color]
@@ -221,27 +213,39 @@ def inspect_panel(panel_idx, panel_x, panel_y):
         heat_label = "не определено"
         rospy.logwarn("  Heat color not detected")
 
-    # Определение загрязнений
     cont_count, cont_contours, cont_mask = detect_contamination(hsv)
     rospy.loginfo(f"  Contamination objects: {cont_count}")
 
-    # Обведение контуров на изображении для публикации в /solar
+    # Публикация маски для отладки
+    mask_bgr = cv2.cvtColor(cont_mask, cv2.COLOR_GRAY2BGR)
+    mask_msg = bridge.cv2_to_imgmsg(mask_bgr, encoding='bgr8')
+    mask_pub.publish(mask_msg)
+
+    # Обведение контуров на изображении
     annotated = img.copy()
-    cv2.drawContours(annotated, cont_contours, -1, (0, 255, 0), 2)
-    # Добавить текст
+
+    if cont_count > 0:
+        # Красные контуры загрязнений
+        cv2.drawContours(annotated, cont_contours, -1, (0, 0, 255), 3)
+
+        # Жёлтые прямоугольники с подписями
+        for i, contour in enumerate(cont_contours):
+            x, y, w, h = cv2.boundingRect(contour)
+            cv2.rectangle(annotated, (x, y), (x + w, y + h), (0, 255, 255), 2)
+            cv2.putText(annotated, f"Cont {i+1}", (x, y - 5),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
+
+    # Общий текст
     cv2.putText(annotated, f"Panel #{panel_idx + 1}: {heat_label}, {cont_count} cont.",
                 (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
     solar_msg = bridge.cv2_to_imgmsg(annotated, encoding='bgr8')
     solar_pub.publish(solar_msg)
 
-    # Определение координат панели в aruco_map
-    # Используем текущую позицию дрона как координаты панели (дрон над панелью)
     telem = get_telemetry(frame_id='aruco_map')
     panel_coord_x = telem.x
     panel_coord_y = telem.y
 
-    # Формирование отчёта
     line = f"Солнечная панель №{panel_idx + 1}: {panel_coord_x:.1f} {panel_coord_y:.1f}, {heat_label}, {cont_count}"
     report_lines.append(line)
     rospy.loginfo(f"  Report: {line}")
@@ -265,32 +269,37 @@ def main():
     navigate_wait(z=1.5, frame_id='body', auto_arm=True, speed=0.5)
     shutdown_initiated = False
 
-
     if panels_data:
-        print()
-        # Поиск панелей через камеру (если данные о панелях неизвестны)
-        # Зигзагообразный паттерн
+        rospy.logwarn("panels_data is empty. Searching via zigzag pattern.")
         waypoints = [
-            (1, 1), (3, 1), (5, 1), (7, 1), (9, 1),
-            (9, 3), (7, 3), (5, 3), (3, 3), (1, 3),
-            (1, 5), (3, 5), (5, 5), (7, 5), (9, 5),
-            (9, 7), (7, 7), (5, 7), (3, 7), (1, 7),
-            (1, 9), (3, 9), (5, 9), (7, 9), (9, 9),
+            (1, 1.5), (3, 1.5), (5, 1.5), (7, 1.5), (9, 1.5),
+            (9, 3.5), (7, 3.5), (5, 3.5), (3, 3.5), (1, 3.5),
+            (1, 5.5), (3, 5.5), (5, 5.5), (7, 5.5), (9, 5.5),
+            (9, 7.5), (7, 7.5), (5, 7.5), (3, 7.5), (1, 7.5),
+            (1, 9.5), (3, 9.5), (5, 9.5), (7, 9.5), (9, 9.5),
         ]
         for x, y in waypoints:
             if shutdown_initiated:
                 return
+
+            if is_near_inspected(x, y, threshold=1.5):
+                continue
+
             navigate_wait(x=x, y=y, z=1.5, speed=0.3, frame_id='aruco_map')
             rospy.sleep(1)
+
             img_msg = rospy.wait_for_message('/main_camera/image_raw', Image, timeout=5)
             img = bridge.imgmsg_to_cv2(img_msg, 'bgr8')
             hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
             heat_color = detect_heat_color(hsv)
-            if heat_color or cv2.inRange(hsv, np.array(CONTAMINATION_HSV[0]),
-                                          np.array(CONTAMINATION_HSV[1])).sum() > 50:
-                # Панель найдена — инспектируем
+            cont_mask_sum = cv2.inRange(hsv, np.array(CONTAMINATION_HSV[0]),
+                                        np.array(CONTAMINATION_HSV[1])).sum()
+
+            if heat_color or cont_mask_sum > 50:
                 telem = get_telemetry(frame_id='aruco_map')
-                inspect_panel(len(inspected_panels), telem.x, telem.y)
+                if not is_near_inspected(telem.x, telem.y, threshold=1.0):
+                    inspect_panel(len(inspected_panels), telem.x, telem.y)
 
     # Возвращение на старт
     rospy.loginfo("Returning to start")
@@ -298,12 +307,10 @@ def main():
     navigate_wait(x=0, y=0, z=0.3, speed=0.3, frame_id='aruco_map', tolerance=0.15)
     land_wait()
 
-    # Публикация итогового отчёта
     full_report = '\n'.join(report_lines)
     report_pub.publish(data=full_report)
     status_pub.publish(data="COMPLETED")
 
-    # Сохранение отчёта в файл
     with open('report.txt', 'w') as f:
         f.write(full_report + '\n')
     rospy.loginfo(f"Report saved: {full_report}")
@@ -317,16 +324,19 @@ def mission_start_cb(msg):
     shutdown_initiated = False
     main()
 
+
 def mission_land_cb(msg):
     global shutdown_initiated
     shutdown_initiated = True
     land_wait()
+
 
 def mission_kill_cb(msg):
     global shutdown_initiated
     shutdown_initiated = True
     if get_telemetry().armed:
         set_attitude(thrust=0)
+
 
 rospy.Subscriber('/mission/start', Empty, mission_start_cb)
 rospy.Subscriber('/mission/land', Empty, mission_land_cb)

@@ -55,6 +55,9 @@ sleep 2
 echo "=== 2. Настройка и генерация мира ==="
 python3 scripts/gen_solar_farm.py
 
+cp -r $PROJECT_DIR/home/clover/Desktop/solar_panel/ /home/clover/catkin_ws/src/sitl_gazebo/models/
+cp $PROJECT_DIR/simulator.launch /home/clover/catkin_ws/src/clover/clover_simulation/launch/simulator.launch
+
 echo "=== 3. Запуск симулятора ==="
 source /home/clover/catkin_ws/devel/setup.bash
 # Запускаем в tmux-сессии

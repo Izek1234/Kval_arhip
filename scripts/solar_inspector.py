@@ -34,7 +34,7 @@ get_telemetry = rospy.ServiceProxy('get_telemetry', srv.GetTelemetry)
 navigate = rospy.ServiceProxy('navigate', srv.Navigate)
 set_attitude = rospy.ServiceProxy('set_attitude', srv.SetAttitude)
 land = rospy.ServiceProxy('land', Trigger)
-set_led = rospy.ServiceProxy('set_led', srv.SetLEDEffect)
+set_led = rospy.ServiceProxy('led/set_effect', srv.SetLEDEffect)
 
 # Публикаторы
 solar_pub = rospy.Publisher('/solar', Image, queue_size=10)

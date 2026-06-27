@@ -13,7 +13,7 @@ git clone https://github.com/Izek1234/Kval_arhip.git
 bash start_solar.sh
 ```
 Этот скрипт генерирует мир и создает среду.
-Запустить код для инспекции:
+Запустить код для инспекции в VSCode:
 ```bash
 python3 /home/clover/Documents/Kval_arhip/scripts/solar_inspector.py
 ```

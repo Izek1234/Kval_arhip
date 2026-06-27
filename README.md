@@ -4,7 +4,7 @@
 
 Перейдите в папку /home/clover/Documents/ и клонируйте в него репозиторий:
 ```bash
-cd ~
+cd /home/clover/Documents/
 git clone https://github.com/Izek1234/Kval_arhip.git
 ```
 

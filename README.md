@@ -1,3 +1,5 @@
+## Видео работы проекта:
+https://drive.google.com/drive/folders/1H_r3ynLqnfwQ2yHwtw0XvS7hJk5QE16L?usp=sharing
 
 ## Установка и запуск
 Используйте образ clover VM с их официального репозитория (https://github.com/CopterExpress/clover_vm)
